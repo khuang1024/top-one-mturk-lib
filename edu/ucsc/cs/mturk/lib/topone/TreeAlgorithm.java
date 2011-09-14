@@ -510,24 +510,24 @@ public class TreeAlgorithm {
 	    log += "The tree algorithm started at " + new Date().toString() + "\n\n";
 	    log += "The Parameters Table \n" + 
 	           "+-----------------------------------------------+-------------------------------+ \n" +  
-		   "| Number of Inputs of a Normal HIT\t\t| " + nInput + "\t\t\t\t| \n" + 
+		   "| Number of Inputs of a Normal HIT              | " + nInput + "\n" + 
 		   "+-----------------------------------------------+-------------------------------+ \n" +
-		   "| Number of Outputs of a Normal HIT\t\t| " + nOutput + "\t\t\t\t| \n" + 
+		   "| Number of Outputs of a Normal HIT             | " + nOutput + "\n" + 
 		   "+-----------------------------------------------+-------------------------------+ \n" +
-		   "| Number of Assignments of a Normal HIT\t\t| " + nAssignment + "\t\t\t\t| \n" + 
+		   "| Number of Assignments of a Normal HIT         | " + nAssignment + "\n" + 
 		   "+-----------------------------------------------+-------------------------------+ \n" +
-		   "| Number of Assignments of a Tie-Solving HIT\t| " + nTieAssignment + "\t\t\t\t| \n" +
+		   "| Number of Assignments of a Tie-Solving HIT    | " + nTieAssignment + "\n" +
 		   "+-----------------------------------------------+-------------------------------+ \n" +
-		   "| Inputs Are Shuffled\t\t\t\t| " + isShuffled + "\t\t\t\t| \n" + 
+		   "| Inputs Are Shuffled                           | " + isShuffled + "\n" + 
 		   "+-----------------------------------------------+-------------------------------+ \n" +
-		   "| Generate Automatic Log\t\t\t| " + isLogged + "\t\t\t\t| \n" +
+		   "| Generate Automatic Log                        | " + isLogged + "\n" +
 		   "+-----------------------------------------------+-------------------------------+ \n" +
-		   "| The Name of the Automatic Log\t\t\t| " + logName + "\t| \n" +
+		   "| The Name of the Automatic Log                 | " + logName + "\n" +
 		   "+-----------------------------------------------+-------------------------------+ \n" +
-		   "| Job ID\t\t\t\t\t| " + jobId + "\t\t\t| \n" + 
+		   "| Job ID                                        | " + jobId + "\n" + 
 		   "+-----------------------------------------------+-------------------------------+ \n\n";
 	    LogWriter.writeLog(log, logName);
-	    
+	    System.out.println(log);
 	}
 	
 	initActiveHitQueue();
@@ -583,7 +583,8 @@ public class TreeAlgorithm {
 	 */
 	
 	int i = 0;
-	//FIX BUG
+	
+	//Bug fixed
 	for (i = 0; i + nInput <= questions.size(); i = i + nInput) {
 	    
 	    // Get the inputs for a HIT.
@@ -605,6 +606,7 @@ public class TreeAlgorithm {
 	        LogWriter.writeCreateHitLog(service, hitId, level, tag, 
 	    	                       nAssignment, nOutput, inputs, logName);
 	    }
+	    
 	    
 	    inputs.clear();
 	}
@@ -761,11 +763,13 @@ public class TreeAlgorithm {
 		 * tree. The consecutiveness guarantees only the items from 
 		 * the next "neighbor" HIT can be combined with the items from  
 		 * this HIT to create a new HIT.
+		 * 
+		 * Bug fixed: i should start from 1.
 		 */
-		for (int i = 0; i < nInput && i < queueSize; i++) {
+		for (int i = 1; i < nInput && i < queueSize; i++) {
 		    int preTag = levelQueue.get(level).get(i).getTag();
 		    int nextTag = levelQueue.get(level).get(i-1).getTag();
-		    if ((i != 0) && (preTag - nextTag > 1)) {
+		    if (preTag - nextTag > 1) {
 			canCreateAHIT = false;
 			System.out.println("Order Wrong!");
 			break;
@@ -978,6 +982,7 @@ public class TreeAlgorithm {
 	    }
 	    log += "\n";
 	    LogWriter.writeLog(log, logName);
+	    System.out.println(log);
 	}
 	
 	// Create a new tie-solving HIT with the tie answers.
@@ -1035,18 +1040,18 @@ public class TreeAlgorithm {
 		    e.printStackTrace();
 		}
 	    }
-	    System.out.println("Thread: CheckActiveHITQueueThread is done.\n\n");
-	    System.out.println("The tree algorithm ended at " + 
-		    		new Date().toString() + "\n\n");
 	    
-	    // This is only for log
-	    if (isLogged) {
-		String log = "";
-		log += "The tree algorithm ended at " + 
-			new Date().toString() + "\n\n";
+	    String log = "";
+	    log += "Thread: CheckActiveHITQueueThread is done.\n\n";
+	    log += "The tree algorithm ended at " + 
+	    		new Date().toString() + "\n\n";
+	    log += "The final answer is: " + finalAnswer;
+	    if(isLogged){
 		LogWriter.writeLog(log, logName);
-		isActiveHitQueueThreadDone = true;
 	    }
+	    System.out.println(log);
+	    
+	    isActiveHitQueueThreadDone = true;
 	}
     }
     
@@ -1074,21 +1079,21 @@ public class TreeAlgorithm {
 		     */
 		    if (!levelQueue.get(i).isEmpty()) {
 			
-			while(!levelQueue.get(i).isEmpty()){
+			while (!levelQueue.get(i).isEmpty()) {
 			    Item item = levelQueue.get(i).get(0);
 			    levelQueue.get(i).remove(0);							
 			    
 			    Object question = item.getQuestion();
 			    int level = item.getLevel() + 1;
 							
-			    //big bug!!
+			    //Bug fixed.
 			    int tag = 0;
-			    if(levelQueue.get(level).size() == 0){
+			    if (levelQueue.get(level).size() == 0) {
 				
 				/* 
-				 * If no items exist at this level has no item, 
+				 * If no items exist at this level, 
 				 * set the tag 0. However, when it goes up to 
-				 * the upper level, it will be evaluated again!???????????????????????????????????????????????
+				 * the upper level, it will be evaluated again!
 				 */
 				tag = -2;
 			    } else {
@@ -1113,7 +1118,8 @@ public class TreeAlgorithm {
 					"] to level " + level + "\n\n";
 //				log += "New profile of this item:" + 
 //					question + ", " + level + ", " + tag + "\n";
-				LogWriter.writeLog(log, logName);				
+				LogWriter.writeLog(log, logName);
+				System.out.println(log);
 			    }
 
 			}
@@ -1190,9 +1196,9 @@ public class TreeAlgorithm {
 		
 		System.out.println("Thread: CheckNewItemQueueThread is done.\n\n");
 		isNewItemQueueThreadDone = true;
-	    }
-	    else{
-		//bug
+	    } else {
+		
+		// Bug fixed.
 		finalAnswer = levelQueue.get(levelQueue.size()-1).get(0).getQuestion();
 		
 		System.out.println("Thread: CheckNewItemQueueThread is done.\n\n");

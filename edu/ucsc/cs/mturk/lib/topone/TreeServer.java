@@ -38,7 +38,7 @@ class ServerThread implements Runnable{
 		this.br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 		this.ps = new PrintStream(s.getOutputStream());
 	}
-	private static void parseToMap(HashMap hm, String str){
+	private static void parseToMap(HashMap<String, String> hm, String str){
 		String[] key_value = str.split("&");
 		for(String kv: key_value){
 			String[] s = kv.split("=");
@@ -55,8 +55,7 @@ class ServerThread implements Runnable{
 			System.out.println("The string read from socket is: " + param);
 			
 			//parse the string
-			@SuppressWarnings("rawtypes")
-			HashMap hm = new HashMap();
+			HashMap<String, String> hm = new HashMap<String, String>();
 			parseToMap(hm, param);
 			
 			//initialize the input questions
@@ -76,29 +75,29 @@ class ServerThread implements Runnable{
 			System.out.println("Initial sockect closed.");
 			
 			//start and initialize the algorithm
-			TreeAlgorithm alg = new TreeAlgorithm(inputs);
-			alg.setImgFile(hm.get("imgfile").toString());
-			alg.setJobID(hm.get("jobid").toString());
-			alg.run();
+//			TreeAlgorithm alg = new TreeAlgorithm(inputs);
+//			alg.setImgFile(hm.get("imgfile").toString());
+//			alg.setJobID(hm.get("jobid").toString());
+//			alg.run();
 			
 			//wait until the algorithm is done
-			while(!alg.isOver()){
-				try {
-					Thread.sleep(1000*5);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+//			while(!alg.isOver()){
+//				try {
+//					Thread.sleep(1000*5);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//			}
 			
 			//get a new socket to return the final answer
 			Socket skt = new Socket(TreeServer.hisIP, TreeServer.hisPort);
 			PrintStream returnPs = new PrintStream(skt.getOutputStream());
-			String returnAnswerString = "qtype=sendAnswer&" + 
-					"jobid="+alg.getJobID() + "&" + 
-					"answer=" + alg.getFinalAnswer().toString();
-			returnPs.println(returnAnswerString);
-			returnPs.flush();
-			System.out.println("Returned string is: "+returnAnswerString);
+//			String returnAnswerString = "qtype=sendAnswer&" + 
+//					"jobid="+alg.getJobID() + "&" + 
+//					"answer=" + alg.getFinalAnswer().toString();
+//			returnPs.println(returnAnswerString);
+//			returnPs.flush();
+//			System.out.println("Returned string is: "+returnAnswerString);
 			
 			//waiting for the feedback
 			BufferedReader feedbackBr = new BufferedReader(new InputStreamReader(skt.getInputStream()));
@@ -111,7 +110,6 @@ class ServerThread implements Runnable{
 			skt.close();
 		}
 		catch(IOException e){
-//			System.out.println("Something ");
 			e.printStackTrace();
 		}
 	}

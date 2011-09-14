@@ -1,4 +1,4 @@
-package edu.ucsc.cs.mturk.lib.topone;
+package edu.ucsc.cs.mturk.test;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -39,11 +39,11 @@ class LogWriter {
      * @param log The content to be recorded.
      * @param fileName The FULL name of the log file, including its path.
      */
-    static void writeLog(String log, String logName) {
+    static void writeLog(String logContent, String logName) {
 	BufferedWriter bw = null;
 	try{
 	    bw = new BufferedWriter(new FileWriter(logName, true));
-	    bw.write(log);
+	    bw.write(logContent);
 	    bw.newLine();
 	    bw.flush();
 	} catch (IOException e) {
@@ -63,23 +63,22 @@ class LogWriter {
 	
 	HIT hit = service.getHIT(hitId);
 	
-	String log = "";
-	log += "A new HIT is created.\n";
-	log += " Level:\t" + level + "\n";
-	log += " Tag:\t" + tag + "\n";
-	log += " ID:\t" + hitId + "\n";
-	log += " Group ID:\t" + hit.getHITTypeId() + "\n";
-	log += " Number of questions(inputs):\t" + inputs.size() + "\n";
-	log += " Number of requested assignments:\t" + numberOfAssignments + "\n";
-	log += " Number of requested answers:\t" + numberOfOutputs + "\n";
-	log += " Questions:\n";
+	String logContent = "";
+	logContent += "A new HIT is created.\n";
+	logContent += " Level:\t" + level + "\n";
+	logContent += " Tag:\t" + tag + "\n";
+	logContent += " ID:\t" + hitId + "\n";
+	logContent += " Group ID:\t" + hit.getHITTypeId() + "\n";
+	logContent += " Number of questions(inputs):\t" + inputs.size();
+	logContent += " Number of requested assignments:\t" + numberOfAssignments + "\n";
+	logContent += " Number of requested answers:\t" + numberOfOutputs + "\n";
+	logContent += " Questions:\n";
 	for (int j = 0; j < inputs.size(); j++) {
-	    log += "  " + inputs.get(j).toString() + "\n";
+	    logContent += "  " + inputs.get(j).toString() + "\n";
 	}
-	log += " Time:\t" + (new Date()).toString() + "\n";
-	log += " URL:\t" + service.getWebsiteURL() + "/mturk/preview?groupId=" + hit.getHITTypeId()+"\n\n";
-	writeLog(log, logName);
-	System.out.println(log);
+	logContent += " Time:\t" + (new Date()).toString() + "\n";
+	logContent += " URL:\t" + service.getWebsiteURL() + "/mturk/preview?groupId=" + hit.getHITTypeId()+"\n\n";
+	writeLog(logContent, logName);
     }
     
     static void writeGetAnswerLog(String hitId, ArrayList<Object> answers, String logName) {
