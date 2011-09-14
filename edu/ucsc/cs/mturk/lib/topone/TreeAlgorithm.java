@@ -413,6 +413,8 @@ public class TreeAlgorithm {
 	    int numberOfInputs,int numberOfOutputs, 
 	    int numberOfAssignments, int numberOfTieAssignments, 
 	    MyHit myHit) {
+	this.checkInitialization(questions, numberOfInputs, 
+		numberOfOutputs, numberOfAssignments, numberOfTieAssignments);
 	this.myHit = myHit;
 	this.questions = (ArrayList<Object>) questions;
 	this.finalAnswer = null;
@@ -442,6 +444,53 @@ public class TreeAlgorithm {
 	
 	this.isNewItemQueueThreadDone = false;
 	this.isActiveHitQueueThreadDone = false;
+    }
+    
+    /*
+     * This function validates the values of parameters input by library users.
+     */
+    private void checkInitialization(ArrayList<Object> questions,
+	    int numberOfInputs,int numberOfOutputs, 
+	    int numberOfAssignments, int numberOfTieAssignments) {
+	if (questions.size() == 0) {
+	    throw new TreeAlgorithmException("The size of questions is 0." +
+	    		" [questions.size() == 0]");
+	}
+	if (questions.size() < numberOfInputs) {
+	    throw new TreeAlgorithmException("The size of questions is" +
+	    		" less than the number of inputs of a HIT." +
+	    		" [questions.size() < numberOfInputs]");
+	}
+	if (questions.size() < numberOfOutputs) {
+	    throw new TreeAlgorithmException("The size of questions is" +
+	    		" less than the number of outputs of a HIT." +
+	    		" [questions.size() < numberOfOutputs]");
+	}
+	if (numberOfInputs < numberOfOutputs) {
+	    throw new TreeAlgorithmException("The number of inputs of a HIT" +
+	    		" is less than the number of outputs of a HIT." +
+	    		" [numberOfInputs < numberOfOutputs]");
+	}
+	if (numberOfInputs < 0) {
+	    throw new TreeAlgorithmException("The number of inputs of a HIT" +
+	    		" is negative." +
+	    		" [numberOfInputs < 0]");
+	}
+	if (numberOfOutputs < 0) {
+	    throw new TreeAlgorithmException("The number of outputs of a HIT" +
+	    		" is negative." +
+	    		" [numberOfOutputs < 0]");
+	}
+	if (numberOfAssignments < 1) {
+	    throw new TreeAlgorithmException("The number of assignments of " +
+	    		"a normal HIT is less than 1." +
+	    		" [numberOfAssignments < 1]");
+	}
+	if (numberOfTieAssignments < 1) {
+	    throw new TreeAlgorithmException("The number of assignments of " +
+	    		"a tie-solving HIT is less than 1." +
+	    		" [numberOfTieAssignments < 1]");
+	}
     }
     
     /**
@@ -565,6 +614,8 @@ public class TreeAlgorithm {
 	    newItemQueue.add(new Item(questions.get(i), 0, tags[0]));
 	}
     }
+    
+    
 	
     private void checkActiveHITQueue() {
 	System.out.println("Checking activeHitQueue ...");
@@ -837,12 +888,11 @@ public class TreeAlgorithm {
 	    return rawAnswers;
 	}
 	
-	// Prevent error
-	// Define exception here! -------------------------------------------------------------
 	if (rawAnswers.size() < outputNum) {
-	    String errorLog = "Error: rawAnswers.size() < outputNum\n\n";
-	    LogWriter.writeLog(errorLog, logName);
-	    return null;
+	    throw new TreeAlgorithmException("Too few answers returned." +
+	    		"The number of total returned answers " +
+	    		"is " + rawAnswers.size() + ". The " +
+	    		"number of required answers is " + outputNum + ".");
 	}
 	
 	/*
@@ -880,12 +930,10 @@ public class TreeAlgorithm {
 	    }
 	}
 	
-//	//prevent error
-//	if(contents[outputNum-1] == null){
-//	    String errorLog = "\nError: content[outputNum-1] == null\n\n";
-//	    this.writeLog(errorLog, Configuration.logFile);
-//	    System.out.println(errorLog);
-//	}
+	if (counts[outputNum - 1] < 1) {
+	    throw new TreeAlgorithmException("Too many same answers" +
+	    		" returned by a HIT.");
+	}
 
 	// Check if there is a tie.
 	if (counts[outputNum-1] == counts[outputNum] 
