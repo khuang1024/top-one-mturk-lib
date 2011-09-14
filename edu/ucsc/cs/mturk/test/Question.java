@@ -2,6 +2,11 @@ package edu.ucsc.cs.mturk.test;
 
 import java.util.ArrayList;
 
+/*
+ *  This class is for generating the string of a question, 
+ *  according to the required format by Amazon Mechanical 
+ *  Turk.
+ */
 public class Question {
     private String question;
     

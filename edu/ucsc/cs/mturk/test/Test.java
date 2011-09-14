@@ -7,6 +7,9 @@ import com.amazonaws.mturk.util.PropertiesClientConfig;
 
 import edu.ucsc.cs.mturk.lib.topone.TreeAlgorithm;
 
+/*
+ * Run this class to demo the algorithm.
+ */
 public class Test {
 
     /**
