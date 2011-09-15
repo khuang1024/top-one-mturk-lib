@@ -437,7 +437,7 @@ public class TreeAlgorithm {
 	    // the items with tag 0 at each level are all triggered
 	    trigger[i][0] = true;
 	    
-	    for (int j = 1; j < this.trigger[i].length; j++){
+	    for (int j = 1; j < this.trigger[i].length; j++) {
 		trigger[i][j] = false;
 	    }
 	}
@@ -542,7 +542,7 @@ public class TreeAlgorithm {
 	new Thread(new CheckActiveHitQueueThread()).start();
 	
 	//allow enough time for checkNewItemQueueThread to start
-	try{
+	try {
 	    Thread.sleep(1000*2);
 	} catch (InterruptedException e) {
 	    e.printStackTrace();
@@ -563,7 +563,7 @@ public class TreeAlgorithm {
      * 
      * @return <tt>true</tt> if the program is done.
      */
-    public boolean isDone(){
+    public boolean isDone() {
 	return isActiveHitQueueThreadDone;
     }
 
@@ -572,16 +572,15 @@ public class TreeAlgorithm {
      * 
      * @return The final answer.
      */
-    public Object getFinalAnswer(){
+    public Object getFinalAnswer() {
 	return finalAnswer;
     }
     
-    private void initActiveHitQueue(){
-	/*
-	 * This method creates new HITs based on the parameters, 
-	 * and keeps them in record -- the activeHitQueue.
-	 */
-	
+    /*
+     * This method creates new HITs based on the parameters, 
+     * and keeps them in record -- the activeHitQueue.
+     */
+    private void initActiveHitQueue() {
 	int i = 0;
 	
 	//Bug fixed
@@ -589,7 +588,7 @@ public class TreeAlgorithm {
 	    
 	    // Get the inputs for a HIT.
 	    ArrayList<Object> inputs = new ArrayList<Object>();
-	    for(int j = 0; j < nInput; j++){
+	    for (int j = 0; j < nInput; j++) {
 		inputs.add(questions.get(i+j));
 	    }
 	    
@@ -652,7 +651,7 @@ public class TreeAlgorithm {
 		    // Put the new answers into the NewItemQueue.
 		    int level = entityHit.getLevel() + 1;
 		    int tag = entityHit.getTag();
-		    for(int j = 0; j < answers.size(); j++){
+		    for (int j = 0; j < answers.size(); j++) {
 		        newItemQueue.add(
 		    	    new Item(answers.get(j), level, tag));
 		    }
@@ -1032,7 +1031,7 @@ public class TreeAlgorithm {
     
     private class CheckActiveHitQueueThread implements Runnable{
 	public void run() {
-	    while(!isNewItemQueueThreadDone){
+	    while (!isNewItemQueueThreadDone) {
 		checkActiveHITQueue();
 		try {
 		    Thread.sleep(1000*5);
@@ -1046,7 +1045,7 @@ public class TreeAlgorithm {
 	    log += "The tree algorithm ended at " + 
 	    		new Date().toString() + "\n\n";
 	    log += "The final answer is: " + finalAnswer;
-	    if(isLogged){
+	    if (isLogged) {
 		LogWriter.writeLog(log, logName);
 	    }
 	    System.out.println(log);
