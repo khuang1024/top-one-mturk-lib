@@ -13,11 +13,7 @@ import com.amazonaws.mturk.service.axis.RequesterService;
 
 class LogWriter {
     
-    /**
-     * Create or reset the log file with provided file name.
-     * 
-     * @param fileName The FULL name of the log file, including its path.
-     */
+    /* Create or reset the log file with provided file name.*/
     static void createOrResetLog(String logName) {
 	FileOutputStream fos = null;
 	try {
@@ -33,12 +29,7 @@ class LogWriter {
 	}
     }
     
-    /**
-     * Write the log into the log file.
-     * 
-     * @param log The content to be recorded.
-     * @param fileName The FULL name of the log file, including its path.
-     */
+    /* Write the log into the log file.*/
     static void writeLog(String log, String logName) {
 	BufferedWriter bw = null;
 	try{

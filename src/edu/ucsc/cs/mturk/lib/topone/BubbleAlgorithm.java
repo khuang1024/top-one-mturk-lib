@@ -454,41 +454,41 @@ public class BubbleAlgorithm {
 	    System.out.println(log);
 	}
 	
-	while (this.questions.size() > 1) {
+	while (questions.size() > 1) {
 	    ArrayList<Object> answers = new ArrayList<Object>();
 	    ArrayList<Object> inputs = new ArrayList<Object>();
 	    
-	    if (this.questions.size() >= this.nInput) {
-		for (int i = 0; i < this.nInput; i++) {
-		    inputs.add(this.questions.get(0));
-		    this.questions.remove(0);
+	    if (questions.size() >= nInput) {
+		for (int i = 0; i < nInput; i++) {
+		    inputs.add(questions.get(0));
+		    questions.remove(0);
 		}
 	    } else {
-		this.nOutput = 1;
-		int questionSize = this.questions.size();
+		nOutput = 1;
+		int questionSize = questions.size();
 		for (int i = 0; i < questionSize; i++) {
-		    inputs.add(this.questions.get(0));
-		    this.questions.remove(0);
+		    inputs.add(questions.get(0));
+		    questions.remove(0);
 		}
 	    }
 	    
 	    
 	    // Create a new HIT.
-	    String hitId = myHit.createMyHit(service, inputs, this.nOutput, this.nAssignment);
+	    String hitId = myHit.createMyHit(service, inputs, nOutput, nAssignment);
 	    
 	    if (isLogged) {
 		LogWriter.writeBubbleCreateHitLog(service, hitId, nAssignment, nOutput, inputs, logName);
 	    }
 	    
 	    // Keep waiting and checking the status of this new HIT, until it is done.
-	    HIT hit = this.service.getHIT(hitId);
+	    HIT hit = service.getHIT(hitId);
 	    while (hit.getHITStatus() != HITStatus.Reviewable) {
 		try {
 		    Thread.sleep(1000*5);
 		} catch (InterruptedException e) {
 		    e.printStackTrace();
 		}
-		hit = this.service.getHIT(hitId);
+		hit = service.getHIT(hitId);
 	    }
 	    
 	    // Retrieve the answers of the HIT.
@@ -503,7 +503,7 @@ public class BubbleAlgorithm {
 	    
 	    // Put the new answers into the questions queue.
 	    for (int i = answers.size() -1; i >= 0; i--) {
-		this.questions.add(0, answers.get(i));
+		questions.add(0, answers.get(i));
 	    }
 	    
 	    System.out.println(questions.size());
@@ -512,7 +512,7 @@ public class BubbleAlgorithm {
 	    myHit.dumpPastHit(service, hitId);
 	}
 	
-	finalAnswer = this.questions.get(0);
+	finalAnswer = questions.get(0);
 	
 	String info = "The bubble algorithm ended at " + 
     		new Date().toString() + "\n\n";;
