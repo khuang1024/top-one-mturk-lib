@@ -504,11 +504,11 @@ public class TreeAlgorithm {
 	}
 	
 	if (isLogged) {
-	    String log = null;
+	    String log = "";
 	    
 	    LogWriter.createOrResetLog(logName);
 	    log += "The tree algorithm started at " + new Date().toString() + "\n\n";
-	    log += "The Parameters Table \n" + 
+	    log += "The Table of Parameters \n" + 
 	           "+-----------------------------------------------+-------------------------------+ \n" +  
 		   "| Number of Inputs of a Normal HIT              | " + nInput + "\n" + 
 		   "+-----------------------------------------------+-------------------------------+ \n" +
@@ -997,7 +997,7 @@ public class TreeAlgorithm {
 		
 	inputs.clear();
 	
-	// Wait until the tie-solving HIT's answers come out
+	// Wait until the tie-solving HIT's answers come out.
 	HIT hit = service.getHIT(hitId);
 	while (hit.getHITStatus() != HITStatus.Reviewable) {
 	    try {
@@ -1014,15 +1014,15 @@ public class TreeAlgorithm {
 	ArrayList<Object> answersOfTie = 
 		refineRawAnswers(rawAnswersOfTie, nOutputOfTie);
 	
-	// Write to log
+	// Write to log.
 	if (isLogged) {
 	    LogWriter.writeGetAnswerLog(hitId, answersOfTie, logName);
 	}
 	
-	// Do the default operation on this HIT
+	// Do the default operation on this HIT.
 	myHit.dumpPastHit(service, hitId);
 		    
-	// Append the new answers to outputs
+	// Append the new answers to outputs.
 	for (int j = 0; j < answersOfTie.size(); j++) {
 	    outputs.add(answersOfTie.get(j));
 	}
@@ -1116,8 +1116,6 @@ public class TreeAlgorithm {
 //					", " + item.getLevel() + 
 //					", " + item.getTag() + 
 					"] to level " + level + "\n\n";
-//				log += "New profile of this item:" + 
-//					question + ", " + level + ", " + tag + "\n";
 				LogWriter.writeLog(log, logName);
 				System.out.println(log);
 			    }
@@ -1146,7 +1144,7 @@ public class TreeAlgorithm {
 	     */
 	    if (levelQueue.get(levelQueue.size()-1).size() > 1) {
 		
-		//get all elements at the top level
+		// Get all elements at the top level.
 		int num = levelQueue.get(levelQueue.size()-1).size();
 		ArrayList<Object> inputs = new ArrayList<Object>();
 		for (int i = 0; i < num; i++) {
@@ -1166,7 +1164,7 @@ public class TreeAlgorithm {
 		
 		inputs.clear();
 		
-		// Wait until the hit is done
+		// Wait until the hit is done.
 		HIT hit = service.getHIT(hitId);
 		while (hit.getHITStatus() != HITStatus.Reviewable) {
 		    try {
@@ -1177,11 +1175,11 @@ public class TreeAlgorithm {
 		    hit = service.getHIT(hitId);
 		}
 		
-		// Allow enough time to get the answers
+		// Allow enough time to get the answers.
 		try {
-		Thread.sleep(1000*2);
+		    Thread.sleep(1000*2);
 		} catch (InterruptedException e) {
-		e.printStackTrace();
+		    e.printStackTrace();
 		}
 		
 		ArrayList<Object> rawAnswers = myHit.getMyHitAnswers(service, hitId);
@@ -1189,19 +1187,25 @@ public class TreeAlgorithm {
 		finalAnswer = answers.get(0);
 		
 		if (isLogged) {
-		    LogWriter.writeGetAnswerLog(hitId, answers, hitId);
+		    LogWriter.writeGetAnswerLog(hitId, answers, logName);
 		}
+		
+		String info = "Thread: CheckNewItemQueueThread is done.\n\n";
+		LogWriter.writeLog(info, logName);
+		System.out.println(info);
 		
 		myHit.dumpPastHit(service, hitId);
 		
-		System.out.println("Thread: CheckNewItemQueueThread is done.\n\n");
 		isNewItemQueueThreadDone = true;
 	    } else {
 		
 		// Bug fixed.
 		finalAnswer = levelQueue.get(levelQueue.size()-1).get(0).getQuestion();
 		
-		System.out.println("Thread: CheckNewItemQueueThread is done.\n\n");
+		String info = "Thread: CheckNewItemQueueThread is done.\n\n";
+		LogWriter.writeLog(info, logName);
+		System.out.println(info);
+		
 		isNewItemQueueThreadDone = true;
 	    }
 	}

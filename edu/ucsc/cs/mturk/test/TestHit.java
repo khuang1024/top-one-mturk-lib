@@ -42,7 +42,7 @@ public class TestHit implements MyHit {
 	Assignment[] assignments = service.getAllAssignmentsForHIT(hitId);
 	ArrayList<Object> rawAnswers = new ArrayList<Object>();
 	
-	for(Assignment assignment : assignments){
+	for (Assignment assignment : assignments) {
 		String log = assignment.getWorkerId()+" had the following" +
 				" answers for HIT("+assignment.getHITId()+
 				"):  "+(new Date()).toString()+"\n";
@@ -63,14 +63,14 @@ public class TestHit implements MyHit {
 			if (answerValues != null) {
 				 rawAnswerValues = answerValues.split("\\|");
 			}
-			for(String ans: rawAnswerValues) {
+			for (String ans: rawAnswerValues) {
 				if(ans.startsWith("desc_identifier:")){
 					rawAnswers.add(ans.substring(16));
 					log += ans.substring(16)+"\n";
 				}
 			}
 		}
-		log += "\n";
+		log += "---------\n\n";
 		LogWriter.writeLog(log, "detail.txt");
 	}
 	return rawAnswers;

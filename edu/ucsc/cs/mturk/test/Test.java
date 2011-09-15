@@ -40,6 +40,11 @@ public class Test {
 	questions.add("11");
 	questions.add("12");
 	questions.add("13");
+	questions.add("14");
+	questions.add("15");
+	questions.add("16");
+	questions.add("17");
+	questions.add("18");
 	
 	TreeAlgorithm tree = new TreeAlgorithm(questions, numberOfInputs,
 		    numberOfOutputs, numberOfAssignments, 
