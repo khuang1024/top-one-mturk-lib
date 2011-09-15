@@ -617,7 +617,7 @@ public class TreeAlgorithm {
     
     
 	
-    private void checkActiveHITQueue() {
+    private void checkActiveHitQueue() {
 	System.out.println("Checking activeHitQueue ...");
 
 	if (!activeHitQueue.isEmpty()) {
@@ -744,7 +744,7 @@ public class TreeAlgorithm {
 	    
 	    // If the first item is triggered, start to get items of this level.
 	    while (!levelQueue.get(level).isEmpty()) {
-		boolean canCreateAHIT = false;
+		boolean canCreateAHit = false;
 		int queueSize = levelQueue.get(level).size(); 
 		
 		/*
@@ -752,7 +752,7 @@ public class TreeAlgorithm {
 		 *  input amount of creating a HIT.
 		 */
 		if (queueSize >= nInput) {
-		    canCreateAHIT = true;
+		    canCreateAHit = true;
 		}
 		
 		/*
@@ -769,7 +769,7 @@ public class TreeAlgorithm {
 		    int preTag = levelQueue.get(level).get(i).getTag();
 		    int nextTag = levelQueue.get(level).get(i-1).getTag();
 		    if (preTag - nextTag > 1) {
-			canCreateAHIT = false;
+			canCreateAHit = false;
 			System.out.println("Order Wrong!");
 			break;
 		    }
@@ -780,7 +780,7 @@ public class TreeAlgorithm {
 		 * and jump out of the while loop, namely stop attempting 
 		 * create a HIT with the items at this level.
 		 */
-		if (!canCreateAHIT) {
+		if (!canCreateAHit) {
 		    break;
 		} else {
 		    
@@ -875,7 +875,7 @@ public class TreeAlgorithm {
     private class CheckActiveHitQueueThread implements Runnable{
 	public void run() {
 	    while (!isNewItemQueueThreadDone) {
-		checkActiveHITQueue();
+		checkActiveHitQueue();
 		try {
 		    Thread.sleep(1000*5);
 		} catch (InterruptedException e) {
@@ -884,7 +884,7 @@ public class TreeAlgorithm {
 	    }
 	    
 	    String log = "";
-	    log += "Thread: CheckActiveHITQueueThread is done.\n\n";
+	    log += "Thread: CheckActiveHitQueueThread is done.\n\n";
 	    log += "The tree algorithm ended at " + 
 	    		new Date().toString() + "\n\n";
 	    log += "The final answer is: " + finalAnswer;
