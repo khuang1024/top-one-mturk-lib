@@ -23,7 +23,7 @@ public class DemoBubbleAlgorithm {
 	int numberOfOutputs = 2;
 	int numberOfAssignments = 2; 
 	int numberOfTieAssignments = 1;
-	DemoHit testHit = new DemoHit();
+	DemoHit demoHit = new DemoHit();
 	RequesterService service = new RequesterService(
 		new PropertiesClientConfig(System.getProperty("user.dir") +
 			java.io.File.separator + "mturk.properties"));
@@ -35,7 +35,7 @@ public class DemoBubbleAlgorithm {
 	
 	BubbleAlgorithm tree = new BubbleAlgorithm(questions, numberOfInputs,
 		    numberOfOutputs, numberOfAssignments, 
-		    numberOfTieAssignments, testHit, service);
+		    numberOfTieAssignments, demoHit, service);
 	tree.start();
     }
 
