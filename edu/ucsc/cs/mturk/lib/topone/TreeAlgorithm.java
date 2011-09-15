@@ -556,7 +556,6 @@ public class TreeAlgorithm {
 	 */
 	new Thread(new CheckNewItemQueueThread()).start();
     }
-	
 
     /**
      * Indicate whether this instance is done.
@@ -602,7 +601,7 @@ public class TreeAlgorithm {
 	    activeHitQueue.add(new EntityHit(hitId, level, tag));
 	    
 	    if (isLogged) {
-	        LogWriter.writeCreateHitLog(service, hitId, level, tag, 
+	        LogWriter.writeTreeCreateHitLog(service, hitId, level, tag, 
 	    	                       nAssignment, nOutput, inputs, logName);
 	    }
 	    
@@ -644,9 +643,10 @@ public class TreeAlgorithm {
 		    
 		    // Get the answers which have been checked and refined.
 		    ArrayList<Object> answers = 
-		    	refineRawAnswers(
+		    	AnswerProcessor.refineRawAnswers(
 		    		myHit.getMyHitAnswers(service, hitId), 
-		    		nOutput);
+		    		nOutput, service, myHit, nTieAssignment, 
+		    		isLogged, logName, AnswerProcessor.TREE_ALGORITHM);
 		    
 		    // Put the new answers into the NewItemQueue.
 		    int level = entityHit.getLevel() + 1;
@@ -805,7 +805,7 @@ public class TreeAlgorithm {
 		    
 		    //write to log
 		    if (isLogged) {
-			LogWriter.writeCreateHitLog(service, hitId, level, tag,
+			LogWriter.writeTreeCreateHitLog(service, hitId, level, tag,
 				nAssignment, nOutput, inputs, logName);
 		    }
 		    
@@ -870,163 +870,6 @@ public class TreeAlgorithm {
 	    }
 	}
 	return levelQueue;
-    }
-
-    /*
-     * The answers must:
-     * 1. be as many as the requested number of outputs.
-     * 2. not have same answers.
-     * Therefore, we have to refine the raw answers to make it 
-     * meet these requirements.
-     * 
-     * Here should be an exception check, make sure outputNum 
-     * is less than the size of rawAnswers!
-     */
-    private ArrayList<Object> refineRawAnswers(
-	    ArrayList<Object> rawAnswers, int outputNum) {
-	ArrayList<Object> answers = new ArrayList<Object>();
-	
-	// If we happen to have the exact amount of answers we want, return them.
-	if (rawAnswers.size() == outputNum) {
-	    return rawAnswers;
-	}
-	
-	if (rawAnswers.size() < outputNum) {
-	    throw new TreeAlgorithmException("Too few answers returned." +
-	    		"The number of total returned answers " +
-	    		"is " + rawAnswers.size() + ". The " +
-	    		"number of required answers is " + outputNum + ".");
-	}
-	
-	/*
-	 *  Initialize the content and count array which record the answers 
-	 *  returned and its amount.
-	 */
-	Object[] contents = new Object[rawAnswers.size()];
-	int[] counts = new int[rawAnswers.size()];
-	//NOTE: Here might be exception
-	for (int i = 0; i < rawAnswers.size(); i++) {
-	    int j = 0;
-	    while (contents[j] != null && 
-		    !contents[j].equals(rawAnswers.get(i))) {
-		j++;
-	    }
-	    if (contents[j] == null) {
-		contents[j] = rawAnswers.get(i);
-	    }
-	    counts[j]++;
-	}
-		
-	/*
-	 * Sort the contents by counts.
-	 */
-	for (int i = 0; i < contents.length; i++) {
-	    for (int j = i; j < contents.length; j++) {
-		if (counts[i] < counts[j]) {
-		    Object tempContent = contents[i];
-		    int tempCount = counts[i];
-		    contents[i] = contents[j];
-		    counts[i] = counts[j];
-		    contents[j] = tempContent;
-		    counts[j] = tempCount;
-		}
-	    }
-	}
-	
-	if (counts[outputNum - 1] < 1) {
-	    throw new TreeAlgorithmException("Too many same answers" +
-	    		" returned by a HIT.");
-	}
-
-	// Check if there is a tie.
-	if (counts[outputNum-1] == counts[outputNum] 
-		&& contents[outputNum-1] != null) {
-	    answers = solveTie(contents, counts, outputNum); // Solve tie.
-	} else {
-	    for (int i = 0; i < outputNum; i++) {
-		answers.add(contents[i]);
-	    }
-	}
-	return answers;
-    }
-	
-    /*
-     * When a tie comes up, we have to solve it. A tie may happen when 
-     * there are some answers have the same votes. Therefore, it is too many.
-     * We have to ask additional workers to solve the tie.
-     */
-    private ArrayList<Object> solveTie(Object[] content, 
-	    int[] count, int outputNum) {
-	ArrayList<Object> inputs = new ArrayList<Object>();
-	ArrayList<Object> outputs = new ArrayList<Object>();
-	
-	
-	// Evaluate outputs with the answers which don't cause the tie.
-	int i = 0;
-	while (i < count.length && count[i] != count[outputNum-1]) {
-	    outputs.add(content[i]);
-	    i++;
-	}	
-	
-	// Evaluate inputs with the tie answers.
-	while (i < count.length && count[i] == count[outputNum-1]) {
-	    inputs.add(content[i]);
-	    i++;
-	}
-	
-	if (isLogged) {
-	    String log = "A tie casued by the following answers:\n";
-	    for (int j = 0; j < inputs.size(); j++) {
-		log += "" + inputs.get(j).toString() + "\n";
-	    }
-	    log += "\n";
-	    LogWriter.writeLog(log, logName);
-	    System.out.println(log);
-	}
-	
-	// Create a new tie-solving HIT with the tie answers.
-	int nOutputOfTie = outputNum-outputs.size();
-	String hitId = myHit.createMyHit(
-	    service, inputs, nOutputOfTie, nTieAssignment);
-	
-	if (isLogged) {
-	    LogWriter.writeCreateHitLog(service, hitId, -1, -1, 
-		    nTieAssignment, nOutputOfTie, inputs, logName);
-	}
-		
-	inputs.clear();
-	
-	// Wait until the tie-solving HIT's answers come out.
-	HIT hit = service.getHIT(hitId);
-	while (hit.getHITStatus() != HITStatus.Reviewable) {
-	    try {
-		Thread.sleep(1000*3);
-	    } catch (InterruptedException e) {
-		e.printStackTrace();
-	    }
-	    hit = service.getHIT(hitId); // Refresh the HIT
-	}
-	
-	
-	ArrayList<Object> rawAnswersOfTie = 
-		myHit.getMyHitAnswers(service, hitId);
-	ArrayList<Object> answersOfTie = 
-		refineRawAnswers(rawAnswersOfTie, nOutputOfTie);
-	
-	// Write to log.
-	if (isLogged) {
-	    LogWriter.writeGetAnswerLog(hitId, answersOfTie, logName);
-	}
-	
-	// Do the default operation on this HIT.
-	myHit.dumpPastHit(service, hitId);
-		    
-	// Append the new answers to outputs.
-	for (int j = 0; j < answersOfTie.size(); j++) {
-	    outputs.add(answersOfTie.get(j));
-	}
-
-	return outputs;
     }
     
     private class CheckActiveHitQueueThread implements Runnable{
@@ -1156,7 +999,7 @@ public class TreeAlgorithm {
 		    inputs, 1, nAssignment);
 		
 		if (isLogged) {
-		    LogWriter.writeCreateHitLog(service, hitId, 
+		    LogWriter.writeTreeCreateHitLog(service, hitId, 
 			    levelQueue.size()-1, tags[levelQueue.size()-1], 
 			    nAssignment, 1, inputs, logName);   
 		}
@@ -1181,8 +1024,11 @@ public class TreeAlgorithm {
 		    e.printStackTrace();
 		}
 		
-		ArrayList<Object> rawAnswers = myHit.getMyHitAnswers(service, hitId);
-		ArrayList<Object> answers = refineRawAnswers(rawAnswers, 1);
+		ArrayList<Object> rawAnswers = myHit.getMyHitAnswers(
+			service, hitId);
+		ArrayList<Object> answers = AnswerProcessor.refineRawAnswers(
+			rawAnswers, 1, service, myHit, nTieAssignment, 
+			isLogged, logName, AnswerProcessor.TREE_ALGORITHM);
 		finalAnswer = answers.get(0);
 		
 		if (isLogged) {

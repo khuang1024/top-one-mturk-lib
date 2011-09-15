@@ -57,7 +57,7 @@ class LogWriter {
 	}
     }
     
-    static void writeCreateHitLog(RequesterService service, 
+    static void writeTreeCreateHitLog(RequesterService service, 
 	    String hitId, int level, int tag, int numberOfAssignments, 
 	    int numberOfOutputs, ArrayList<Object> inputs, String logName) {
 	
@@ -67,6 +67,29 @@ class LogWriter {
 	log += "A new HIT is created.\n";
 	log += " Level:\t" + level + "\n";
 	log += " Tag:\t" + tag + "\n";
+	log += " ID:\t" + hitId + "\n";
+	log += " Group ID:\t" + hit.getHITTypeId() + "\n";
+	log += " Number of questions(inputs):\t" + inputs.size() + "\n";
+	log += " Number of requested assignments:\t" + numberOfAssignments + "\n";
+	log += " Number of requested answers:\t" + numberOfOutputs + "\n";
+	log += " Questions:\n";
+	for (int j = 0; j < inputs.size(); j++) {
+	    log += "  " + inputs.get(j).toString() + "\n";
+	}
+	log += " Time:\t" + (new Date()).toString() + "\n";
+	log += " URL:\t" + service.getWebsiteURL() + "/mturk/preview?groupId=" + hit.getHITTypeId()+"\n\n";
+	writeLog(log, logName);
+	System.out.println(log);
+    }
+    
+    static void writeBubbleCreateHitLog(RequesterService service, 
+	    String hitId, int numberOfAssignments, 
+	    int numberOfOutputs, ArrayList<Object> inputs, String logName) {
+	
+	HIT hit = service.getHIT(hitId);
+	
+	String log = "";
+	log += "A new HIT is created.\n";
 	log += " ID:\t" + hitId + "\n";
 	log += " Group ID:\t" + hit.getHITTypeId() + "\n";
 	log += " Number of questions(inputs):\t" + inputs.size() + "\n";
