@@ -33,10 +33,10 @@ public class DemoBubbleAlgorithm {
 	questions.add("4");
 	questions.add("5");
 	
-	BubbleAlgorithm tree = new BubbleAlgorithm(questions, numberOfInputs,
+	BubbleAlgorithm bubble = new BubbleAlgorithm(questions, numberOfInputs,
 		    numberOfOutputs, numberOfAssignments, 
 		    numberOfTieAssignments, demoHit, service);
-	tree.start();
+	bubble.start();
     }
 
 }
