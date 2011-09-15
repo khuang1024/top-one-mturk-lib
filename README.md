@@ -1,4 +1,4 @@
-This is a library exclusivly for Amazon Mechanical Turk. This library 
+This is a library exclusively for Amazon Mechanical Turk. This library 
 implements two algorithms which are tree-like and bubble-like respectively.
 
 Sometimes, MTurk requesters have a big task which needs to be divided into
