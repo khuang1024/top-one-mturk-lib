@@ -6,5 +6,6 @@ small sub-tasks and combines their sub-results to reach the final answer.
 This process can be organized like a tree or a bubble.
 
 With this library, you can easily make this feature. By implementing an 
-interface, passing the parameters which serve your specific purpose to an
-instance of the algorithm and run this instance, everything will be done.
+interface, passing the parameters which serve your specific purpose to the
+constructor of an algorithm instance and running this instance, everything
+will be done.
