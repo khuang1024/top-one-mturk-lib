@@ -73,7 +73,38 @@ class TopOneServerThread implements Runnable {
 	    // Get request string from client.
 	    info += "Request string received from client: " + request + "\n\n";
 	    
-	    // Parse all the parameters.
+	    /*
+	     * Parse all the parameters.
+	     * An example:
+	     * qnum=19&
+	     * q0=1&
+	     * q1=2&
+	     * q2=3&
+	     * q3=4&
+	     * q4=5&
+	     * q5=6&
+	     * q6=7&
+	     * q7=8&
+	     * q8=9&
+	     * q9=10&
+	     * q10=11&
+	     * q11=12&
+	     * q12=13&
+	     * q13=14&
+	     * q14=15&
+	     * q15=16&
+	     * q16=17&
+	     * q17=18&
+	     * q18=19&
+	     * nInput=3&
+	     * nOutput=2&
+	     * nAssignment=2&
+	     * nTieAssignment=1&
+	     * isShuffled=true&	// can be omitted
+	     * isLogged=true&	// can be omitted
+	     * jobId=HIU7QWE92	// can be omitted
+	     * \n		// don't forget \n
+	     */
 	    HashMap<String, String> hm = StringParser.parseToMap(request);
 	    questions = StringParser.extractQuestions(hm);
 	    nInput = StringParser.extractNumberOfInputs(hm);
@@ -158,6 +189,10 @@ class TopOneServerThread implements Runnable {
 			"Please check the IP and port of client.");
 	    }
 	    
+	    /*
+	     * An example:
+	     * type=returnFinalAnswer&finalAnswer=6
+	     */
 	    String finalAnswerString = "";
 	    finalAnswerString += "type=returnFinalAnswer&";
 	    finalAnswerString += "finalAnswer=" + finalAnswer;

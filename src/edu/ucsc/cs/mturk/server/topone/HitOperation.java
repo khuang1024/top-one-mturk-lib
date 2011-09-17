@@ -29,6 +29,11 @@ class HitOperation {
 	Socket s = new Socket(clientIp, clientPort);
 	PrintStream ps = new PrintStream(s.getOutputStream());
 
+	/*
+	 * An example:
+	 * type=createHit&nOutput=2&nAssignment=3&jobId=1831723&
+	 * qnum=3&q0=3&q1=13&q2=7
+	 */
 	String request = "";
 	request += "type=createHit&" +
 		  "nOutput=" + nOutput + "&" +
@@ -38,18 +43,20 @@ class HitOperation {
 	for(int i = 0; i < inputs.size(); i++){
 		request += "&q" + i + "=" + inputs.get(i).toString();
 	}
-	
-	/*
-	 * An example of a request string is:
-	 * type=createHit&nOutput=2&nAssignment=3&jobId=1831723&
-	 * qnum=3&q0=3&q1=13&q2=7
-	 */
 	ps.println(request);
 	ps.flush();
 
+	/*
+	 * An example:
+	 * IW86Q6DTE87W6WQ\n	// hitId
+	 */
 	BufferedReader br = new BufferedReader(
 		new InputStreamReader(s.getInputStream()));
 	String hitID = br.readLine();
+	
+	ps.close();
+	br.close();
+	s.close();
 	return hitID;
     }
     
@@ -63,18 +70,21 @@ class HitOperation {
 	BufferedReader br = new BufferedReader(
 		new InputStreamReader(s.getInputStream()));
 	
+	/*
+	 * An example:
+	 * type=getAnswer&hitId=JASDH7SD9S9&jobId=1831723
+	 */
 	String request = "";
 	request += "type=getAnswer&" + 
 		   "hitId=" + hitId + "&" +
 		   "jobId=" + jobId;
-	
-	/*
-	 * An example of request string is:
-	 * type=getAnswer&hitId=JASDH7SD9S9&jobId=1831723
-	 */
 	ps.println(request);
 	ps.flush();
 
+	/*
+	 * An example:
+	 * anum=2&a0=1&a1=6\n
+	 */
 	String returnedString = br.readLine();
 	s.close();
 	
