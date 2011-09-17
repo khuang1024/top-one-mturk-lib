@@ -56,7 +56,7 @@ class HitOperation {
 	
 	ps.close();
 	br.close();
-	s.close();
+//	s.close();
 	return hitID;
     }
     
@@ -86,7 +86,8 @@ class HitOperation {
 	 * anum=2&a0=1&a1=6\n
 	 */
 	String returnedString = br.readLine();
-	s.close();
+	br.close();
+//	s.close();
 	
 	/*
 	 * An example of returned string is:
@@ -95,7 +96,6 @@ class HitOperation {
 	System.out.println("Returned string: " + ": " + returnedString);
 	HashMap<String, String> hm = StringParser.parseToMap(returnedString);
 	ArrayList<Object> rawAnswers = StringParser.extractAnswers(hm);
-	
 	
 	return rawAnswers;
     }

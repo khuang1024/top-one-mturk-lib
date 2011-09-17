@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 class LogWriter {
-    static void writeLog(String logContent, String logName) {
+    static synchronized void writeLog(String logContent, String logName) {
 	BufferedWriter bw = null;
 	try{
 	    bw = new BufferedWriter(new FileWriter(logName, true));

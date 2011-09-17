@@ -31,7 +31,7 @@ class TopOneServerThread implements Runnable {
     
     // IO operation.
     private final BufferedReader br;
-    private final PrintStream ps;
+//    private final PrintStream ps;
     
     TopOneServerThread(Socket s, String algorithmType, int clientPort, 
 	    String clientIp, String propertyFileName) 
@@ -43,8 +43,8 @@ class TopOneServerThread implements Runnable {
 	
 	this.propertyFileName = propertyFileName;
 	
-	this.br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-	this.ps = new PrintStream(s.getOutputStream());
+	this.br = new BufferedReader(new InputStreamReader(this.s.getInputStream()));
+//	this.ps = new PrintStream(s.getOutputStream());
 	
 	this.jobId = Integer.toString(new Date().hashCode());
     }
@@ -70,8 +70,21 @@ class TopOneServerThread implements Runnable {
 				"from client socket.");
 	    }
 	    
-	    // Get request string from client.
-	    info += "Request string received from client: " + request + "\n\n";
+	    // Close the socket.
+	    try {
+		br.close();
+	    } catch (IOException e2) {
+		throw new TopOneServerException("Cannot close the " +
+			"BufferedReader for receiving initial request " +
+			"from client.");
+	    }
+//	    try {
+//		s.close();
+//	    } catch (IOException e2) {
+//		throw new TopOneServerException("Cannot close socket" +
+//			" for receiving initial request from client.");
+//	    }
+	    System.out.println("Initial sockect closed.");
 	    
 	    /*
 	     * Parse all the parameters.
@@ -116,30 +129,11 @@ class TopOneServerThread implements Runnable {
 	    jobId = StringParser.extractJobId(hm);
 	    
 	    // Output the info to stdout and write to log whose name is jobId.
+	    info += "Request string received from client: " + request + "\n\n";
 	    System.out.println(info);
 	    if (isLogged) {
 		LogWriter.writeLog(info, jobId);
 	    }
-	    
-	    // Return confirmation to client and close the socket.
-	    ps.println("jobId=" + jobId + "&" + "algorithm=" + algorithmType);
-	    ps.flush();
-	    ps.close();
-	    
-	    // Close the socket and BufferedReader of it.
-	    try {
-		br.close();
-	    } catch (IOException e1) {
-		throw new TopOneServerException("Cannot close BufferedReader " +
-				"which reads line from client socket.");
-	    }
-	    try {
-		s.close();
-	    } catch (IOException e1) {
-		throw new TopOneServerException("Cannot close PrintStream " +
-			"which print line to client socket.");
-	    }
-	    System.out.println("Initial sockect closed.");
 	    
 	    // Create a new instance of an algorithm.
 	    Algorithm algorithm = null;
@@ -200,11 +194,11 @@ class TopOneServerThread implements Runnable {
 	    psForFinalAnswer.println(finalAnswerString);
 	    psForFinalAnswer.flush();
 	    psForFinalAnswer.close();
-	    try {
-		sForFinalAnswer.close();
-	    } catch (IOException e) {
-		throw new TopOneServerException("Cannot close the socket for " +
-			"returning the final answer.");
-	    }
+//	    try {
+//		sForFinalAnswer.close();
+//	    } catch (IOException e) {
+//		throw new TopOneServerException("Cannot close the socket for " +
+//			"returning the final answer.");
+//	    }
     }
 }
