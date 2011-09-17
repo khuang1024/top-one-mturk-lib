@@ -413,7 +413,7 @@ public class TreeAlgorithm {
 	    int numberOfInputs,int numberOfOutputs, 
 	    int numberOfAssignments, int numberOfTieAssignments, 
 	    MyHit myHit) {
-	this.checkInitialization(questions, numberOfInputs, 
+	this.validateInitialization(questions, numberOfInputs, 
 		numberOfOutputs, numberOfAssignments, numberOfTieAssignments);
 	this.myHit = myHit;
 	this.questions = (ArrayList<Object>) questions;
@@ -449,7 +449,7 @@ public class TreeAlgorithm {
     /*
      * This function validates the values of parameters input by library users.
      */
-    private void checkInitialization(ArrayList<Object> questions,
+    private void validateInitialization(ArrayList<Object> questions,
 	    int numberOfInputs,int numberOfOutputs, 
 	    int numberOfAssignments, int numberOfTieAssignments) {
 	if (questions.size() == 0) {
