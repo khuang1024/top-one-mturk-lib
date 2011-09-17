@@ -358,7 +358,7 @@ public class BubbleAlgorithm {
 	    int numberOfInputs,int numberOfOutputs, 
 	    int numberOfAssignments, int numberOfTieAssignments, 
 	    MyHit myHit) {
-	this.checkInitialization(questions, numberOfInputs, 
+	this.validateInitialization(questions, numberOfInputs, 
 		numberOfOutputs, numberOfAssignments, numberOfTieAssignments);
 	this.myHit = myHit;
 	this.questions = (ArrayList<Object>) questions;
@@ -373,7 +373,7 @@ public class BubbleAlgorithm {
     /*
      * This function validates the values of parameters input by library users.
      */
-    private void checkInitialization(ArrayList<Object> questions,
+    private void validateInitialization(ArrayList<Object> questions,
 	    int numberOfInputs,int numberOfOutputs, 
 	    int numberOfAssignments, int numberOfTieAssignments) {
 	if (questions.size() == 0) {
@@ -417,11 +417,6 @@ public class BubbleAlgorithm {
 	}
     }
     
-//===============================================asdfjnakdfjnasdfnlakjsdfnakjlsdnflakbsdfkajbsdflkjabsdflkjabdsflkjasd=======================
-
-	
-	
-	
     public void start() {
 	if (isShuffled) {
 	    Collections.shuffle(questions);
@@ -505,8 +500,6 @@ public class BubbleAlgorithm {
 	    for (int i = answers.size() -1; i >= 0; i--) {
 		questions.add(0, answers.get(i));
 	    }
-	    
-	    System.out.println(questions.size());
 	    
 	    // Deal with the this already used HIT.
 	    myHit.dumpPastHit(service, hitId);
