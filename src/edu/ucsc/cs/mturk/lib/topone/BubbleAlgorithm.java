@@ -426,7 +426,7 @@ public class BubbleAlgorithm {
 	    String log = "";
 	    
 	    LogWriter.createOrResetLog(logName);
-	    log += "The tree algorithm started at " + new Date().toString() + "\n\n";
+	    log += "The bubble algorithm started at " + new Date().toString() + "\n\n";
 	    log += "The Table of Parameters \n" + 
 	           "+-----------------------------------------------+-------------------------------+ \n" +  
 		   "| Number of Inputs of a Normal HIT              | " + nInput + "\n" + 

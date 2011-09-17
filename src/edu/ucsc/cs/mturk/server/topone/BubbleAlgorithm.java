@@ -115,7 +115,7 @@ public class BubbleAlgorithm implements Algorithm {
 	    String log = "";
 	    
 	    LogWriter.createOrResetLog(jobId);
-	    log += "The tree algorithm started at " + new Date().toString() + "\n\n";
+	    log += "The bubble algorithm started at " + new Date().toString() + "\n\n";
 	    log += "The Table of Parameters \n" + 
 	           "+-----------------------------------------------+-------------------------------+ \n" +  
 		   "| Number of Inputs of a Normal HIT              | " + nInput + "\n" + 
