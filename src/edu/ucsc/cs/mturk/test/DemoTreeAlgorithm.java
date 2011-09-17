@@ -45,6 +45,7 @@ public class DemoTreeAlgorithm {
 	questions.add("16");
 	questions.add("17");
 	questions.add("18");
+	questions.add("19");
 	
 	TreeAlgorithm tree = new TreeAlgorithm(questions, numberOfInputs,
 		    numberOfOutputs, numberOfAssignments, 
