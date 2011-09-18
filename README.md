@@ -8,9 +8,9 @@ you can easily make this feature.
 
 There are three main components in this library.
 1. src/edu/ucsc/cs/mturk/demo contains the demo programs for the use of Java
-library (if you use Java) or server (if you use other language, you can run 
-the algorithm server and pass your questions into the server to process through
-socket).
+library (if you use Java) or algorithm server (if you use other language, you
+can run the algorithm server and pass your questions into the server to process
+through socket).
 2. src/edu/ucsc/cs/mturk/lib contains the source files of the Java library.
 3. src/edu/ucsc/cs/mturk/server contains the source files of the algorithm
 server.
