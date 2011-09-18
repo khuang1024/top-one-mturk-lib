@@ -40,9 +40,16 @@ class HitOperation {
 		  "nAssignment=" + nAssignment + "&" +
 		  "jobId=" + jobId + "&" + 
 		  "qnum=" + (inputs.size());
+	
 	for(int i = 0; i < inputs.size(); i++){
 		request += "&q" + i + "=" + inputs.get(i).toString();
-	}
+	}	
+	
+	// DEBUG
+//	request += "\n";
+//	System.out.println("The create HIT request from server is: " + request);
+	// DEBUG
+	
 	ps.println(request);
 	ps.flush();
 

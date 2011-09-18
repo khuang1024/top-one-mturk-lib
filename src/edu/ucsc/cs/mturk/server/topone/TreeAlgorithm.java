@@ -248,12 +248,20 @@ class TreeAlgorithm implements Algorithm{
 	    // Create a HIT with the inputs.
 	    String hitId = null;
 	    try {
+		// DEBUG
+//		System.out.println("Start to create a new HIT. clientIp=" + clientIp + ", clientPort=" + clientPort);
+		// DEBUG
 		hitId = HitOperation.createHit(inputs, nOutput, nAssignment,
 			clientIp, clientPort, jobId);
 	    } catch (UnknownHostException e) {
 		throw new TopOneServerException("UnknowHostException." +
 				" Please check your socket IP and port.");
 	    } catch (IOException e) {
+		
+		// DEBUG
+//		System.out.println("clientIp=" + clientIp + ", clientPort=" + clientPort);
+		// DEBUG
+		
 		throw new TopOneServerException("IOException." +
 			" Please check your socket IP and port.");
 	    }
@@ -398,7 +406,8 @@ class TreeAlgorithm implements Algorithm{
 	    }
 	}
     }
-	
+    
+    
     private void checkLevelQueue(int level) {
 	System.out.println("Checking No." + level + " levelQueue ...");
 	
@@ -460,6 +469,12 @@ class TreeAlgorithm implements Algorithm{
 		if (!canCreateAHit) {
 		    break;
 		} else {
+		    
+		    // DEBUG
+//		    for (int i = 0; i < nInput && i < queueSize; i++) {
+//			LogWriter.writeLog("DEBUG: level " + level + " has " + levelQueue.get(level).get(i).getQuestion() + " , whose tag = " + levelQueue.get(level).get(i).getTag(), jobId);
+//		    }
+		    // DEBUG
 		    
 		    /*
 		     * Fetch the eligible items for the new HIT, extract the 
@@ -579,6 +594,7 @@ class TreeAlgorithm implements Algorithm{
 		LogWriter.writeLog(log, jobId);
 	    }
 	    System.out.println(log);
+	    
 	    
 	    isActiveHitQueueThreadDone = true;
 	}
@@ -741,7 +757,7 @@ class TreeAlgorithm implements Algorithm{
 //			HitOperation.getAnswer(hitId, clientIp, clientPort, jobId),
 //			1, service, myHit, nTieAssignment, 
 //			isLogged, jobId, AnswerProcessor.TREE_ALGORITHM);
-//		finalAnswer = answers.get(0);
+		finalAnswer = answers.get(0);
 		
 		if (isLogged) {
 		    LogWriter.writeGetAnswerLog(hitId, answers, jobId);

@@ -149,6 +149,9 @@ class TopOneServerThread implements Runnable {
 			propertyFileName);
 	    }
 	    
+	    // Start the instance of algorithm.
+	    algorithm.start();
+	    
 	    // Wait until the algorithm is done.
 	    while (!algorithm.isDone()) {
 		try {

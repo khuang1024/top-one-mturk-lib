@@ -25,7 +25,7 @@ public class TopOneServer {
 	if (args.length != 5) {
 	    throw new TopOneServerException("The number of arguments" +
 	    		" appended after TopOneServer.jar" +
-	    		" must be exactly 4.");
+	    		" must be exactly 5.");
 	}
 	
 	/*
@@ -33,7 +33,7 @@ public class TopOneServer {
 	 * of algorithm.
 	 */
 	if (!args[0].equals("tree")
-		|| !args[0].equals("bubble")) {
+		&& !args[0].equals("bubble")) {
 	    throw new TopOneServerException("The first parameter must" +
 	    		" be \"tree\" or \"bubble\".");
 	} else {
