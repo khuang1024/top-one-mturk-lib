@@ -36,10 +36,10 @@ import com.amazonaws.mturk.util.PropertiesClientConfig;
  * MyHit</b></i> interface, build an instance of the class and use this instance 
  * as a parameter in the constructor.</p>
  * 
- * Also, generally there are two ways to enable the library have the access to 
+ * Also, generally there are two ways to enable the library to have the access to 
  * your Amazon Mechanical Turk account. The first one is to pass <tt>service</tt> 
  * of type <tt>import com.amazonaws.mturk.service.axis.RequesterService</tt> 
- * into the constructor. The second one is to locate your Amazon Mechnical 
+ * into the constructor. The second one is to locate your Amazon Mechanical 
  * Turk property file, which stores your <tt>access_key</tt>, <tt>secret_key</tt> and 
  * <tt>service_url</tt>, in the same directory of the source file and to pass the 
  * file name as a parameter in the constructor.

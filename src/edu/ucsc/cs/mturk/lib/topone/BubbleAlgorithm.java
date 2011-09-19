@@ -9,6 +9,32 @@ import com.amazonaws.mturk.util.PropertiesClientConfig;
 import com.amazonaws.mturk.requester.HIT;
 import com.amazonaws.mturk.requester.HITStatus;
 
+/**
+ * <p>This class is the implementation of bubble algorithm. It simulates the 
+ * process of the bubble algorithm. Users build an object of the bubble 
+ * algorithm through this class, put questions into this object, and 
+ * the object takes care the rest job. Finally, it returns the final answer 
+ * of this running instance.</p>
+ * 
+ * <p>Since some operations, such as creating a HIT and getting answers from 
+ * workers etc., should be customized by library users, we use callback 
+ * routine to make it. Therefore, library users need to implement <i><b>
+ * MyHit</b></i> interface, build an instance of the class and use this instance 
+ * as a parameter in the constructor.</p>
+ * 
+ * Also, generally there are two ways to enable the library to have the access to 
+ * your Amazon Mechanical Turk account. The first one is to pass <tt>service</tt> 
+ * of type <tt>import com.amazonaws.mturk.service.axis.RequesterService</tt> 
+ * into the constructor. The second one is to locate your Amazon Mechanical 
+ * Turk property file, which stores your <tt>access_key</tt>, <tt>secret_key</tt> and 
+ * <tt>service_url</tt>, in the same directory of the source file and to pass the 
+ * file name as a parameter in the constructor.
+ * 
+ * 
+ * @author Kerui Huang
+ * @version 1.0
+ *
+ */
 public class BubbleAlgorithm {
 
     
