@@ -11,7 +11,12 @@ import java.util.HashMap;
 
 class HitOperation {
     
-    /**
+    // Suppress default constructor for noninstantiability.
+    private HitOperation() {
+	throw new AssertionError();
+    }
+    
+    /*
      * 
      * @param inputs
      * @param nOutput

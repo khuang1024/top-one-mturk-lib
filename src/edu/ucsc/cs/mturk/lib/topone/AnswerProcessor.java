@@ -10,6 +10,11 @@ class AnswerProcessor {
     static final int TREE_ALGORITHM = 0;
     static final int BUBBLE_ALGORITHM = 1;
     
+    //Suppress default constructor for noninstantiability.
+    private AnswerProcessor() {
+	throw new AssertionError();
+    }
+    
     /*
      * The answers must:
      * 1. be as many as the requested number of outputs.

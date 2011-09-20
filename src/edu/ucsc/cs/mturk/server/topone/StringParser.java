@@ -5,6 +5,12 @@ import java.util.Date;
 import java.util.HashMap;
 
 class StringParser {
+    
+    // Suppress default constructor for noninstantiability.
+    private StringParser() {
+	throw new AssertionError();
+    }
+    
     /* Parse the request string.*/
     static HashMap<String, String> parseToMap(String str) {
 	HashMap<String, String> hm = new HashMap<String, String>();

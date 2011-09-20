@@ -13,6 +13,11 @@ import com.amazonaws.mturk.service.axis.RequesterService;
 
 class LogWriter {
     
+    // Suppress default constructor for noninstantiability.
+    private LogWriter() {
+	throw new AssertionError();
+    }
+    
     /* Create or reset the log file with provided file name.*/
     static void createOrResetLog(String logName) {
 	FileOutputStream fos = null;

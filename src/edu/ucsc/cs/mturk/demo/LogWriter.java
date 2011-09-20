@@ -5,6 +5,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 class LogWriter {
+    //Suppress default constructor for noninstantiability.
+    private LogWriter() {
+	throw new AssertionError();
+    }
+    
     static synchronized void writeLog(String logContent, String logName) {
 	BufferedWriter bw = null;
 	try{
