@@ -30,417 +30,251 @@ import com.amazonaws.mturk.requester.HITStatus;
  * <tt>service_url</tt>, in the same directory of the source file and to pass the 
  * file name as a parameter in the constructor.
  * 
+ * <p>Finally, an instance of this class should be created in a Builder 
+ * pattern. To create an instance of the algorithm, a static inner class 
+ * Builder may be used like this:<br/>
+ * <pre>BubbleAlgorithm bubble = new BubbleAlgorithm.Builder(questions, myHit).
+ * propertyFile("mturk.properties").inputSize(6).outputSize(2).
+ * numberOfAssignments(5).isLogged(true).logName("Log.txt").
+ * jobId("E9FG6X9LO");</pre> <br />
+ * Note that you do not need to configure all the parameters. You can choose 
+ * to configure only what you need. However, questions and myHit are still 
+ * required.
+ * </p>
  * 
  * @author Kerui Huang
- * @version 1.0
+ * @version 1.1
  *
  */
 public class BubbleAlgorithm {
-
     
     /* The inputs and output of the algorithm*/
-    private RequesterService service;	//MTurk service
-    private MyHit myHit;	// the object for callback
-    private ArrayList<Object> questions;
-    private Object finalAnswer;
-    private int nInput;		// number of outputs of a HIT
+    private final RequesterService service;	//MTurk service
+    private final MyHit myHit;	// the object for callback
+    private final ArrayList<Object> questions;
+    private final int nInput;		// number of outputs of a HIT
     private int nOutput;	// number of outputs of a HIT
-    private int nAssignment;	// number of assignments of a normal HIT
-    private int nTieAssignment;	// number of assignments of a tie-solving HIT 
-    private boolean isShuffled;	// shuffle the inputs
-    private boolean isLogged;	// whether generate log automatically
-    private String logName;	// the name of the log file
-    private String jobId;	// programmers can assign an ID to this job.
+    private final int nAssignment;	// number of assignments of a normal HIT
+    private final int nTieAssignment;	// number of assignments of a tie-solving HIT 
+    private final boolean isShuffled;	// shuffle the inputs
+    private final boolean isLogged;	// whether generate log automatically
+    private final String logName;	// the name of the log file
+    private final String jobId;	// programmers can assign an ID to this job.
     
     private boolean isDone;
-
-    /**
-     * Constructs a bubble algorithm instance with <tt>service</tt>. 
-     * By default, the questions will be shuffled before the algorithm 
-     * starts; the process will be recorded in an automatically-generated log.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param service the service object of the library user.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    RequesterService service) {
-	this.service = service;
-	this.initEssential(questions, numberOfInputs, numberOfOutputs, 
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = true;
-	this.isLogged = true;
-	this.logName = "Bubble_Algorithm_" + new Date().hashCode() + ".txt";
-	this.jobId = null;
-    }
-
-    /**
-     * Constructs a bubble algorithm instance with <tt>service</tt>. 
-     * By default, the process will be recorded in an 
-     * automatically-generated log.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param service the service object of the library user.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    RequesterService service, boolean isShuffled) {
-	this.service = service;
-	this.initEssential(questions, numberOfInputs, numberOfOutputs, 
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = true;
-	this.logName = "Bubble_Algorithm_" + new Date().hashCode() + ".txt";
-	this.jobId = null;
-    }
+    private Object finalAnswer;
     
-    /**
-     * Constructs a bubble algorithm instance with <tt>service</tt>. 
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param service the service object of the library user.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     * @param isLogged <tt>true</tt> if the algorithm records the process in 
-     * the log file with a default name whose prefix is <i>Bubble_Algorithm</i>.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    RequesterService service, boolean isShuffled, 
-	    boolean isLogged) {
-	this.service = service;
-	this.initEssential(questions, numberOfInputs, numberOfOutputs, 
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = isLogged;
-	this.logName = "Bubble_Algorithm_" + new Date().hashCode() + ".txt";
-	this.jobId = null;
-    }
-    
-    /**
-     * Constructs a bubble algorithm instance with <tt>service</tt>.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param service the service object of the library user.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     * @param isLogged <tt>true</tt> if the algorithm records the process.
-     * @param logName the name of the log file.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    RequesterService service, boolean isShuffled, 
-	    boolean isLogged, String logName) {
-	this.service = service;
-	this.initEssential(questions, numberOfInputs, numberOfOutputs, 
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = isLogged;
-	this.logName = logName;
-	this.jobId = null;
-    }
-
-    /**
-     * Constructs a bubble algorithm instance with <tt>service</tt>  
-     * and assigns a job ID to this instance.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param service the service object of the library user.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     * @param isLogged <tt>true</tt> if the algorithm records the process.
-     * @param logName the name of the log file.
-     * @param jobId the identification assigned by the library user.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    RequesterService service, boolean isShuffled, 
-	    boolean isLogged, String logName, String jobId) {
-	this.service = service;
-	this.initEssential(questions, numberOfInputs, numberOfOutputs,
-		 numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = isLogged;
-	this.logName = logName;
-	this.jobId = jobId;
-    }
-    
-    
-    /**
-     * Constructs a bubble algorithm instance with the <i>property file</i>. 
-     * By default, the questions will be shuffled before the algorithm 
-     * starts; the process will be recorded in an automatically-generated log.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param propertyFileName the name of the property file.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, String propertyFileName) {
-	this.service = new RequesterService(
-				new PropertiesClientConfig(
-					System.getProperty("user.dir") + 
-					java.io.File.separator + 
-					propertyFileName));
-	this.initEssential(questions, numberOfInputs, numberOfOutputs,
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = true;
-	this.isLogged = true;
-	this.logName = "Bubble_Algorithm_" + new Date().hashCode() + ".txt";
-	this.jobId = null;
-    }
-    
-    /**
-     * Constructs a bubble algorithm instance with the <i>property file</i>. 
-     * By default, the process will be recorded in an 
-     * automatically-generated log.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param propertyFileName the name of the property file.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    String propertyFileName, boolean isShuffled) {
-	this.service = new RequesterService(
+    public static class Builder {
+	
+	// Required parameters.
+	private final MyHit myHit;
+	private final ArrayList<Object> questions;
+	
+	// Optional parameters.
+	private RequesterService service = new RequesterService(
 		new PropertiesClientConfig(
 			System.getProperty("user.dir") + 
 			java.io.File.separator + 
-			propertyFileName));
-	this.initEssential(questions, numberOfInputs, numberOfOutputs, 
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = true;
-	this.logName = "Bubble_Algorithm_" + new Date().hashCode() + ".txt";
-	this.jobId = null;
+			"mturk.properties"));
+	private int nInput = 6;
+	private int nOutput = 2;
+	private int nAssignment = 5;
+	private int nTieAssignment = 1;
+	private boolean isShuffled = true;
+	private boolean isLogged = true;
+	private String logName = "Bubble_Algorithm_" + new Date().hashCode() + ".txt";;
+	private String jobId = null;
+	
+	/**
+	 * Constructs a Builder with questions and myHit.
+	 * @param questions the questions to be solved by workers.
+	 * @param myHit the object which implements <i>MyHit</i> interface and 
+	 * provides callback functions.
+	 */
+	public Builder(ArrayList<Object> questions, MyHit myHit) {
+	    this.questions = questions;
+	    this.myHit = myHit;
+	}
+	
+	/**
+	 * Set the service object of the library user.
+	 * @param service the service object of the library user.
+	 * @return the Builder object itself.
+	 */
+	public Builder service(RequesterService service) {
+	    this.service = service;
+	    return this;
+	}
+	
+	/**
+	 * Set the name of the the name of the MTurk property file.
+	 * @param propertyFileName the name of the property file.
+	 * @return the Builder object itself.
+	 */
+	public Builder propertyFile(String propertyFileName) {
+	    this.service  =  new RequesterService(
+		    new PropertiesClientConfig(
+			    System.getProperty("user.dir") + 
+			    java.io.File.separator + 
+			    propertyFileName));
+	    return this;
+	}
+	
+	/**
+	 * Set the number of inputs of a HIT.
+	 * @param inputSize the number of inputs of a HIT.
+	 * @return the Builder object itself.
+	 */
+	public Builder inputSize(int inputSize) {
+	    this.nInput = inputSize;
+	    return this;
+	}
+	
+	/**
+	 * Set the number of outputs of a HIT.
+	 * @param outputSize the number of outputs of a HIT.
+	 * @return the Builder object itself.
+	 */
+	public Builder outputSize(int outputSize) {
+	    this.nOutput = outputSize;
+	    return this;
+	}
+	
+	/**
+	 * Set the number of assignments for a normal HIT.
+	 * @param numberOfAssignments the number of assignments for a normal 
+	 * HIT.
+	 * @return the Builder object itself.
+	 */
+	public Builder numberOfAssignments(int numberOfAssignments) {
+	    this.nAssignment = numberOfAssignments;
+	    return this;
+	}
+	
+	/**
+	 * Set the number of assignments for a tie-solving HIT.
+	 * @param numberOfTieAssignments the number of assignments for a 
+	 * tie-solving HIT.
+	 * @return the Builder object itself.
+	 */
+	public Builder numberOfTieAssignments(int numberOfTieAssignments) {
+	    this.nTieAssignment = numberOfTieAssignments;
+	    return this;
+	}
+	
+	/**
+	 * Set whether the inputs are shuffled by the algorithm.
+	 * @param isShuffled <tt>true</tt> if the inputs are shuffled by the algorithm.
+	 * @return the Builder object itself.
+	 */
+	public Builder isShuffled(boolean isShuffled) {
+	    this.isShuffled = isShuffled;
+	    return this;
+	}
+	
+	/**
+	 * Set whether the algorithm records the computation process.
+	 * @param isLogged <tt>true</tt> if the algorithm records the computation 
+	 * process.
+	 * @return the Builder object itself.
+	 */
+	public Builder isLogged(boolean isLogged) {
+	    this.isLogged = isLogged;
+	    return this;
+	}
+	
+	/**
+	 * Set the name of the log file.
+	 * @param logName the name of the log file.
+	 * @return the Builder object itself.
+	 */
+	public Builder logName(String logName) {
+	    this.logName = logName;
+	    return this;
+	}
+	
+	/**
+	 * Set the job ID for this algorithm instance.
+	 * @param jobId the job ID for this algorithm instance.
+	 * @return the Builder object itself.
+	 */
+	public Builder jobId(String jobId) {
+	    this.jobId = jobId;
+	    return this;
+	}
+	
+	/**
+	 * Create a new instance of TreeAlgorithm.
+	 * @return the newly created instance of TreeAlgorithm.
+	 */
+	public BubbleAlgorithm build() {
+	    validateInitialization(questions, nInput, nOutput, 
+		    nAssignment, nTieAssignment);
+	    return new BubbleAlgorithm(this);
+	}
+	
+	/*
+	 * This function validates the values of parameters input by library users.
+	 */
+	private void validateInitialization(ArrayList<Object> questions,
+		int numberOfInputs,int numberOfOutputs, 
+		int numberOfAssignments, int numberOfTieAssignments) {
+	    if (questions.size() == 0) {
+		throw new BubbleAlgorithmException("The size of questions is 0." +
+			" [questions.size() == 0]");
+	    }
+	    if (questions.size() < numberOfInputs) {
+		throw new BubbleAlgorithmException("The size of questions is" +
+			" less than the number of inputs of a HIT." +
+			" [questions.size() < numberOfInputs]");
+	    }
+	    if (questions.size() < numberOfOutputs) {
+		throw new BubbleAlgorithmException("The size of questions is" +
+			" less than the number of outputs of a HIT." +
+			" [questions.size() < numberOfOutputs]");
+	    }
+	    if (numberOfInputs < numberOfOutputs) {
+		throw new BubbleAlgorithmException("The number of inputs of a HIT" +
+			" is less than the number of outputs of a HIT." +
+			" [numberOfInputs < numberOfOutputs]");
+	    }
+	    if (numberOfInputs < 0) {
+		throw new BubbleAlgorithmException("The number of inputs of a HIT" +
+			" is negative." +
+			" [numberOfInputs < 0]");
+	    }
+	    if (numberOfOutputs < 0) {
+		throw new BubbleAlgorithmException("The number of outputs of a HIT" +
+			" is negative." +
+			" [numberOfOutputs < 0]");
+	    }
+	    if (numberOfAssignments < 1) {
+		throw new BubbleAlgorithmException("The number of assignments of " +
+			"a normal HIT is less than 1." +
+			" [numberOfAssignments < 1]");
+	    }
+	    if (numberOfTieAssignments < 1) {
+		throw new BubbleAlgorithmException("The number of assignments of " +
+			"a tie-solving HIT is less than 1." +
+			" [numberOfTieAssignments < 1]");
+	    }
+	}
     }
     
-    /**
-     * Constructs a bubble algorithm instance with the <i>property file</i>. 
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param propertyFileName the name of the property file.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     * @param isLogged <tt>true</tt> if the algorithm records the process in 
-     * the log file with a default name whose prefix is <i>Bubble_Algorithm</i>.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    String propertyFileName, boolean isShuffled, 
-	    boolean isLogged) {
-	this.service = new RequesterService(
-		new PropertiesClientConfig(
-			System.getProperty("user.dir") + 
-			java.io.File.separator + 
-			propertyFileName));
-	this.initEssential(questions, numberOfInputs, numberOfOutputs, 
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = isLogged;
-	this.logName = "Bubble_Algorithm_" + new Date().hashCode() + ".txt";
-	this.jobId = null;
-    }
-    
-    /**
-     * Constructs a bubble algorithm instance with the <i>property file</i>.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param propertyFileName the name of the property file.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     * @param isLogged <tt>true</tt> if the algorithm records the process.
-     * @param logName the name of the log file.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    String propertyFileName, boolean isShuffled, 
-	    boolean isLogged, String logName) {
-	this.service = new RequesterService(
-		new PropertiesClientConfig(
-			System.getProperty("user.dir") + 
-			java.io.File.separator + 
-			propertyFileName));
-	this.initEssential(questions, numberOfInputs, numberOfOutputs, 
-		           numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = isLogged;
-	this.logName = logName;
-	this.jobId = null;
-    }
-
-    /**
-     * Constructs a bubble algorithm instance with the <i>property file</i> 
-     * and assigns a job ID to this instance.
-     * 
-     * @param questions the questions to be solved by workers.
-     * @param numberOfInputs the number of inputs of each HIT.
-     * @param numberOfOutputs the number of outputs of each HIT.
-     * @param numberOfAssignments the number of assignments of each normal HIT.
-     * @param numberOfTieAssignments the number of assignments of 
-     * each tie-solving HIT.
-     * @param myHit the object which implements <i>MyHit</i> interface and 
-     * provides callback functions.
-     * @param propertyFileName the name of the property file.
-     * @param isShuffled <tt>true</tt> if the questions are shuffled by the 
-     * algorithm.
-     * @param isLogged <tt>true</tt> if the algorithm records the process.
-     * @param logName the name of the log file.
-     * @param jobId the identification assigned by the library user.
-     */
-    public BubbleAlgorithm(ArrayList<Object> questions, int numberOfInputs,
-	    int numberOfOutputs, int numberOfAssignments, 
-	    int numberOfTieAssignments, MyHit myHit, 
-	    String propertyFileName, boolean isShuffled, 
-	    boolean isLogged, String logName, String jobId) {
-	this.service = new RequesterService(
-		new PropertiesClientConfig(
-			System.getProperty("user.dir") + 
-			java.io.File.separator + 
-			propertyFileName));
-	this.initEssential(questions, numberOfInputs, numberOfOutputs,
-		 numberOfAssignments, numberOfTieAssignments, myHit);
-	this.isShuffled = isShuffled;
-	this.isLogged = isLogged;
-	this.logName = logName;
-	this.jobId = jobId;
-    }
-    
-    private void initEssential(ArrayList<Object> questions,
-	    int numberOfInputs,int numberOfOutputs, 
-	    int numberOfAssignments, int numberOfTieAssignments, 
-	    MyHit myHit) {
-	this.validateInitialization(questions, numberOfInputs, 
-		numberOfOutputs, numberOfAssignments, numberOfTieAssignments);
-	this.myHit = myHit;
-	this.questions = (ArrayList<Object>) questions;
-	this.finalAnswer = null;
-	this.nInput = numberOfInputs;
-	this.nOutput = numberOfOutputs;
-	this.nAssignment = numberOfAssignments;
-	this.nTieAssignment = numberOfTieAssignments;
+    private BubbleAlgorithm(Builder builder) {
+	this.questions = builder.questions;
+	this.myHit = builder.myHit;
+	this.service = builder.service;
+	this.nInput = builder.nInput;
+	this.nOutput = builder.nOutput;
+	this.nAssignment = builder.nAssignment;
+	this.nTieAssignment = builder.nTieAssignment;
+	this.isShuffled = builder.isShuffled;
+	this.isLogged = builder.isLogged;
+	this.logName = builder.logName;
+	this.jobId = builder.jobId;
 	this.isDone = false;
-    }
-    
-    /*
-     * This function validates the values of parameters input by library users.
-     */
-    private void validateInitialization(ArrayList<Object> questions,
-	    int numberOfInputs,int numberOfOutputs, 
-	    int numberOfAssignments, int numberOfTieAssignments) {
-	if (questions.size() == 0) {
-	    throw new BubbleAlgorithmException("The size of questions is 0." +
-	    		" [questions.size() == 0]");
-	}
-	if (questions.size() < numberOfInputs) {
-	    throw new BubbleAlgorithmException("The size of questions is" +
-	    		" less than the number of inputs of a HIT." +
-	    		" [questions.size() < numberOfInputs]");
-	}
-	if (questions.size() < numberOfOutputs) {
-	    throw new BubbleAlgorithmException("The size of questions is" +
-	    		" less than the number of outputs of a HIT." +
-	    		" [questions.size() < numberOfOutputs]");
-	}
-	if (numberOfInputs < numberOfOutputs) {
-	    throw new BubbleAlgorithmException("The number of inputs of a HIT" +
-	    		" is less than the number of outputs of a HIT." +
-	    		" [numberOfInputs < numberOfOutputs]");
-	}
-	if (numberOfInputs < 0) {
-	    throw new BubbleAlgorithmException("The number of inputs of a HIT" +
-	    		" is negative." +
-	    		" [numberOfInputs < 0]");
-	}
-	if (numberOfOutputs < 0) {
-	    throw new BubbleAlgorithmException("The number of outputs of a HIT" +
-	    		" is negative." +
-	    		" [numberOfOutputs < 0]");
-	}
-	if (numberOfAssignments < 1) {
-	    throw new BubbleAlgorithmException("The number of assignments of " +
-	    		"a normal HIT is less than 1." +
-	    		" [numberOfAssignments < 1]");
-	}
-	if (numberOfTieAssignments < 1) {
-	    throw new BubbleAlgorithmException("The number of assignments of " +
-	    		"a tie-solving HIT is less than 1." +
-	    		" [numberOfTieAssignments < 1]");
-	}
+	this.finalAnswer = null;
     }
     
     public void start() {

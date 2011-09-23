@@ -47,9 +47,12 @@ public class DemoTreeAlgorithm {
 	questions.add("18");
 	questions.add("19");
 	
-	TreeAlgorithm tree = new TreeAlgorithm(questions, numberOfInputs,
-		    numberOfOutputs, numberOfAssignments, 
-		    numberOfTieAssignments, demoHit, service);
+	TreeAlgorithm tree = new TreeAlgorithm.Builder(questions, demoHit).
+		inputSize(numberOfInputs).outputSize(numberOfOutputs).
+		numberOfAssignments(numberOfAssignments).
+		numberOfTieAssignments(numberOfTieAssignments).
+		service(service).build();
+	
 	tree.start();
     }
 

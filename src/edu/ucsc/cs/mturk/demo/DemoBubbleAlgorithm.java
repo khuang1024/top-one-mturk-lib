@@ -33,9 +33,13 @@ public class DemoBubbleAlgorithm {
 	questions.add("4");
 	questions.add("5");
 	
-	BubbleAlgorithm bubble = new BubbleAlgorithm(questions, numberOfInputs,
-		    numberOfOutputs, numberOfAssignments, 
-		    numberOfTieAssignments, demoHit, service);
+	BubbleAlgorithm bubble = new BubbleAlgorithm.Builder(questions, demoHit).
+		inputSize(numberOfInputs).
+		outputSize(numberOfOutputs).
+		numberOfAssignments(numberOfAssignments).
+		numberOfTieAssignments(numberOfTieAssignments).
+		service(service).build();
+	
 	bubble.start();
     }
 
