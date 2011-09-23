@@ -54,6 +54,15 @@ public class DemoTreeAlgorithm {
 		service(service).build();
 	
 	tree.start();
+	while(!tree.isDone()) {
+	    try {
+		Thread.sleep(1000*5);
+	    } catch(InterruptedException e) {
+		e.printStackTrace();
+	    }
+	}
+	
+	System.out.println("The final answer of the algorithm is: " + tree.getFinalAnswer().toString());
     }
 
 }

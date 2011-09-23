@@ -41,6 +41,15 @@ public class DemoBubbleAlgorithm {
 		service(service).build();
 	
 	bubble.start();
+	while(!bubble.isDone()) {
+	    try {
+		Thread.sleep(1000*5);
+	    } catch(InterruptedException e) {
+		e.printStackTrace();
+	    }
+	}
+	
+	System.out.println("The final answer of the algorithm is: " + bubble.getFinalAnswer().toString());
     }
 
 }
