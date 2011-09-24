@@ -64,6 +64,12 @@ public class BubbleAlgorithm {
     private boolean isDone;
     private Object finalAnswer;
     
+    /**
+     * This class is for creating a bubble algorithm in Builder pattern. 
+     * 
+     * @author Kerui Huang
+     *
+     */
     public static class Builder {
 	
 	// Required parameters.
