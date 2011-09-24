@@ -536,6 +536,12 @@ public class TreeAlgorithm {
 	    // Put the item into its levelQueue.
 	    levelQueue.get(level).add(item);
 	    
+	    try {
+		Thread.sleep(1000);
+	    } catch (InterruptedException e) {
+		e.printStackTrace();
+	    }
+	    
 	    /*
 	     *  Trigger the items with next tag so that when they arrive  
 	     *  we can create a HIT using them.
