@@ -67,6 +67,8 @@ public class BubbleAlgorithm {
     /**
      * This class is for creating a bubble algorithm in Builder pattern. 
      * 
+     * @version 1.1
+     * 
      * @author Kerui Huang
      *
      */

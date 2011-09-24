@@ -98,6 +98,8 @@ public class TreeAlgorithm {
     /**
      * This class is for creating a tree algorithm in Builder pattern. 
      * 
+     * @version 1.1
+     * 
      * @author Kerui Huang
      *
      */
