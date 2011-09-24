@@ -366,6 +366,7 @@ public class BubbleAlgorithm {
 	}
 	
 	finalAnswer = questions.get(0);
+	isDone = true;
 	
 	String info = "The bubble algorithm ended at " + 
     		new Date().toString() + "\n\n";;
