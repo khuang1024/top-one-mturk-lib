@@ -1,4 +1,4 @@
-The tree algorithm started at Fri Sep 16 19:03:22 PDT 2011
+The tree algorithm started at Fri Sep 23 17:35:39 PDT 2011
 
 The Table of Parameters 
 +-----------------------------------------------+-------------------------------+ 
@@ -14,7 +14,7 @@ The Table of Parameters
 +-----------------------------------------------+-------------------------------+ 
 | Generate Automatic Log                        | true
 +-----------------------------------------------+-------------------------------+ 
-| The Name of the Automatic Log                 | Tree_Algorithm_1965010209.txt
+| The Name of the Automatic Log                 | Tree_Algorithm_-1730420181.txt
 +-----------------------------------------------+-------------------------------+ 
 | Job ID                                        | null
 +-----------------------------------------------+-------------------------------+ 
@@ -23,87 +23,7 @@ The Table of Parameters
 A new HIT is created.
  Level:	0
  Tag:	0
- ID:	2LOOQ1SNQQ7QXK8HZXBCQR12WE9R7R
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  9
-  19
-  6
- Time:	Fri Sep 16 19:03:24 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A new HIT is created.
- Level:	0
- Tag:	1
- ID:	2KFUYT3DHJHPVOLPINVYBRSXCL0T06
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  11
-  1
-  3
- Time:	Fri Sep 16 19:03:25 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A new HIT is created.
- Level:	0
- Tag:	2
- ID:	2F8S1CSTMOFXIQ0GGJSE1DNXM3JORE
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  8
-  13
-  12
- Time:	Fri Sep 16 19:03:26 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A new HIT is created.
- Level:	0
- Tag:	3
- ID:	2J1ENLVWJ5OP2D67E6ZYPWB7HD6T19
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  15
-  16
-  17
- Time:	Fri Sep 16 19:03:27 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A new HIT is created.
- Level:	0
- Tag:	4
- ID:	2DSVKI62NJQ2SKAB7GHH9BKLFJBLT7
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  7
-  18
-  5
- Time:	Fri Sep 16 19:03:28 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A new HIT is created.
- Level:	0
- Tag:	5
- ID:	2YDWAVKI62NJHF9J0609TH6BN99JRQ
+ ID:	26LTVOK5UFJ5SBF2CVQF1QS1FJY85V
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
@@ -111,214 +31,493 @@ A new HIT is created.
  Questions:
   14
   2
-  10
- Time:	Fri Sep 16 19:03:29 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A tie casued by the following answers:
-16
-17
-
-
-A new HIT is created.
- Level:	-1
- Tag:	-1
- ID:	283FQ0ONNVRHSXP07L7RE76NYXILUY
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	2
- Number of requested assignments:	1
- Number of requested answers:	1
- Questions:
-  16
-  17
- Time:	Fri Sep 16 19:03:58 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A result is received.
- HIT: 283FQ0ONNVRHSXP07L7RE76NYXILUY
- The answers are:
-  16
-
-
-A result is received.
- HIT: 2J1ENLVWJ5OP2D67E6ZYPWB7HD6T19
- The answers are:
-  15
-  16
-
-
-A result is received.
- HIT: 2DSVKI62NJQ2SKAB7GHH9BKLFJBLT7
- The answers are:
   7
-  5
-
-
-A result is received.
- HIT: 2KFUYT3DHJHPVOLPINVYBRSXCL0T06
- The answers are:
-  1
-  3
-
-
-A tie casued by the following answers:
-12
-13
-
-
-A new HIT is created.
- Level:	-1
- Tag:	-1
- ID:	26U6SK9RJ85OQV7QFT1ASMOOTTBT5R
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	2
- Number of requested assignments:	1
- Number of requested answers:	1
- Questions:
-  12
-  13
- Time:	Fri Sep 16 19:04:52 PDT 2011
+ Time:	Fri Sep 23 17:35:41 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
-A result is received.
- HIT: 26U6SK9RJ85OQV7QFT1ASMOOTTBT5R
- The answers are:
-  12
-
-
-A result is received.
- HIT: 2F8S1CSTMOFXIQ0GGJSE1DNXM3JORE
- The answers are:
-  8
-  12
-
-
-A result is received.
- HIT: 2YDWAVKI62NJHF9J0609TH6BN99JRQ
- The answers are:
-  2
-  10
-
-
-A result is received.
- HIT: 2LOOQ1SNQQ7QXK8HZXBCQR12WE9R7R
- The answers are:
-  9
-  6
-
-
 A new HIT is created.
- Level:	1
- Tag:	0
- ID:	2GOR70G5R98DZWB7CENSVTNYF40RBD
+ Level:	0
+ Tag:	1
+ ID:	2QHJMJUNU8LZX4FCECI9BD8J6MJ1HL
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
-  9
+  10
+  13
+  18
+ Time:	Fri Sep 23 17:35:42 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A new HIT is created.
+ Level:	0
+ Tag:	2
+ ID:	2JODG67D1X3VRSSCAVB2ME1MAGPAHI
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  4
+  19
+  12
+ Time:	Fri Sep 23 17:35:43 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A new HIT is created.
+ Level:	0
+ Tag:	3
+ ID:	2SM9F9SSSHX1SWWZQ0WH8F8J7FTYUG
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  16
+  11
+  8
+ Time:	Fri Sep 23 17:35:44 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A new HIT is created.
+ Level:	0
+ Tag:	4
+ ID:	2LTLYHVI44OSTXT66KEE2SBASWG3X8
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  17
   6
-  1
- Time:	Fri Sep 16 19:05:27 PDT 2011
+  5
+ Time:	Fri Sep 23 17:35:45 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A new HIT is created.
+ Level:	0
+ Tag:	5
+ ID:	2Y4VHVKCJ011BFFGHE0KTW61BE986B
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  3
+  15
+  9
+ Time:	Fri Sep 23 17:35:47 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 2LTLYHVI44OSTXT66KEE2SBASWG3X8
+ The answers are:
+  6
+  5
+
+
+A tie casued by the following answers:
+3
+15
+
+
+A new HIT is created.
+ Level:	-1
+ Tag:	-1
+ ID:	2H6HOVR14IXKFFTL0O5CZA6X6PT87A
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	2
+ Number of requested assignments:	1
+ Number of requested answers:	1
+ Questions:
+  3
+  15
+ Time:	Fri Sep 23 17:36:27 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 2H6HOVR14IXKFFTL0O5CZA6X6PT87A
+ The answers are:
+  3
+
+
+A result is received.
+ HIT: 2Y4VHVKCJ011BFFGHE0KTW61BE986B
+ The answers are:
+  9
+  3
+
+
+A tie casued by the following answers:
+13
+18
+
+
+A new HIT is created.
+ Level:	-1
+ Tag:	-1
+ ID:	217FE4EGDHDMTITKGGEZZ6HE2XTAKM
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	2
+ Number of requested assignments:	1
+ Number of requested answers:	1
+ Questions:
+  13
+  18
+ Time:	Fri Sep 23 17:37:06 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 217FE4EGDHDMTITKGGEZZ6HE2XTAKM
+ The answers are:
+  18
+
+
+A result is received.
+ HIT: 2QHJMJUNU8LZX4FCECI9BD8J6MJ1HL
+ The answers are:
+  10
+  18
+
+
+A tie casued by the following answers:
+4
+19
+
+
+A new HIT is created.
+ Level:	-1
+ Tag:	-1
+ ID:	2LW6AUBXHWSHYSTL722ZZDRL0WE3Z5
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	2
+ Number of requested assignments:	1
+ Number of requested answers:	1
+ Questions:
+  4
+  19
+ Time:	Fri Sep 23 17:37:54 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 2LW6AUBXHWSHYSTL722ZZDRL0WE3Z5
+ The answers are:
+  19
+
+
+A result is received.
+ HIT: 2JODG67D1X3VRSSCAVB2ME1MAGPAHI
+ The answers are:
+  12
+  19
+
+
+A result is received.
+ HIT: 2SM9F9SSSHX1SWWZQ0WH8F8J7FTYUG
+ The answers are:
+  16
+  8
+
+
+A tie casued by the following answers:
+14
+7
+
+
+A new HIT is created.
+ Level:	-1
+ Tag:	-1
+ ID:	280LKH1Q6SVQZUGKKXL6O5OBY3N1KP
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	2
+ Number of requested assignments:	1
+ Number of requested answers:	1
+ Questions:
+  14
+  7
+ Time:	Fri Sep 23 17:38:26 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 280LKH1Q6SVQZUGKKXL6O5OBY3N1KP
+ The answers are:
+  7
+
+
+A result is received.
+ HIT: 26LTVOK5UFJ5SBF2CVQF1QS1FJY85V
+ The answers are:
+  2
+  7
+
+
+A new HIT is created.
+ Level:	1
+ Tag:	0
+ ID:	2ETNVP3TVOK5LSRHZ5YQHOZF1HX412
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  2
+  7
+  10
+ Time:	Fri Sep 23 17:39:03 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A new HIT is created.
  Level:	1
  Tag:	1
- ID:	2HFULRGNTBJ3DZL93MG7Q62KKZ6T76
+ ID:	2PZ88MQU6L5O28KUZYOX7AIJIYLCVC
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
-  3
-  8
+  18
   12
- Time:	Fri Sep 16 19:05:28 PDT 2011
+  19
+ Time:	Fri Sep 23 17:39:04 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A new HIT is created.
  Level:	1
  Tag:	2
- ID:	2MCFJ51Y7QEOQS62Q83SWMOF0FAEBN
+ ID:	2TRKSSZVXX2QVI26IXFYJNIW4EX5NG
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
-  15
   16
-  7
- Time:	Fri Sep 16 19:05:29 PDT 2011
+  8
+  6
+ Time:	Fri Sep 23 17:39:05 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A new HIT is created.
  Level:	1
  Tag:	3
- ID:	2BZYW2GTP9RAY5D8K8X91SOFAOGOTR
+ ID:	20DCNHMVHVKCAD9DI9Y4M79KTNB42J
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
   5
-  2
+  9
+  3
+ Time:	Fri Sep 23 17:39:06 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 2PZ88MQU6L5O28KUZYOX7AIJIYLCVC
+ The answers are:
+  12
+  19
+
+
+A result is received.
+ HIT: 2ETNVP3TVOK5LSRHZ5YQHOZF1HX412
+ The answers are:
+  7
   10
- Time:	Fri Sep 16 19:05:31 PDT 2011
+
+
+A new HIT is created.
+ Level:	2
+ Tag:	0
+ ID:	2A30XULRGNTBAGUYB4WFS7N65BM5R4
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  7
+  10
+  12
+ Time:	Fri Sep 23 17:39:56 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 20DCNHMVHVKCAD9DI9Y4M79KTNB42J
+ The answers are:
+  5
+  9
+
+
+A result is received.
+ HIT: 2TRKSSZVXX2QVI26IXFYJNIW4EX5NG
+ The answers are:
+  8
+  6
+
+
+A new HIT is created.
+ Level:	2
+ Tag:	1
+ ID:	26YSNTL0XULR701NHADMGX5FSYS1NU
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  19
+  8
+  6
+ Time:	Fri Sep 23 17:40:21 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A tie casued by the following answers:
-2
-10
+7
+12
 
 
 A new HIT is created.
  Level:	-1
  Tag:	-1
- ID:	234EGOOGQSCMXVIM0Z5IXUU03CNEEN
+ ID:	29UWY2AOO2GMDRO0MNHSFM6ID1744F
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	2
  Number of requested assignments:	1
  Number of requested answers:	1
  Questions:
-  2
-  10
- Time:	Fri Sep 16 19:05:50 PDT 2011
+  7
+  12
+ Time:	Fri Sep 23 17:40:30 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 234EGOOGQSCMXVIM0Z5IXUU03CNEEN
+ HIT: 29UWY2AOO2GMDRO0MNHSFM6ID1744F
  The answers are:
-  2
+  7
 
 
 A result is received.
- HIT: 2BZYW2GTP9RAY5D8K8X91SOFAOGOTR
+ HIT: 2A30XULRGNTBAGUYB4WFS7N65BM5R4
  The answers are:
-  5
-  2
+  10
+  7
 
 
 A result is received.
- HIT: 2HFULRGNTBJ3DZL93MG7Q62KKZ6T76
+ HIT: 26YSNTL0XULR701NHADMGX5FSYS1NU
  The answers are:
-  3
+  8
+  6
+
+
+A new HIT is created.
+ Level:	3
+ Tag:	0
+ ID:	26U6SK9RJ85OQV7QFT1ASMOOTWJ5TH
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  10
+  7
+  8
+ Time:	Fri Sep 23 17:41:06 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 26U6SK9RJ85OQV7QFT1ASMOOTWJ5TH
+ The answers are:
+  10
   8
 
 
+Move [1] to level 1
+
+
+Move [1] to level 2
+
+
+A new HIT is created.
+ Level:	2
+ Tag:	2
+ ID:	2BQY1THV8ER9PL1ZIPDZVM5KI8X1O9
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  5
+  9
+  1
+ Time:	Fri Sep 23 17:41:39 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A tie casued by the following answers:
+5
+1
+
+
+A new HIT is created.
+ Level:	-1
+ Tag:	-1
+ ID:	2C73TVOK5UFJWE6JOLFZIYQS43X47Z
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	2
+ Number of requested assignments:	1
+ Number of requested answers:	1
+ Questions:
+  5
+  1
+ Time:	Fri Sep 23 17:42:03 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
 A result is received.
- HIT: 2MCFJ51Y7QEOQS62Q83SWMOF0FAEBN
+ HIT: 2C73TVOK5UFJWE6JOLFZIYQS43X47Z
  The answers are:
-  15
-  16
+  1
+
+
+A result is received.
+ HIT: 2BQY1THV8ER9PL1ZIPDZVM5KI8X1O9
+ The answers are:
+  9
+  1
+
+
+A new HIT is created.
+ Level:	3
+ Tag:	1
+ ID:	2ETAT2D5NQYNWSB2YQ75WYMNFN348M
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  6
+  9
+  1
+ Time:	Fri Sep 23 17:42:32 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A tie casued by the following answers:
@@ -329,7 +528,7 @@ A tie casued by the following answers:
 A new HIT is created.
  Level:	-1
  Tag:	-1
- ID:	2PFMB3Q39Z0BX71040VEYSTVU8DJUU
+ ID:	2VYDHDM25L8I00784O5Z9OE4TNCFP5
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	2
  Number of requested assignments:	1
@@ -337,236 +536,115 @@ A new HIT is created.
  Questions:
   9
   1
- Time:	Fri Sep 16 19:06:42 PDT 2011
+ Time:	Fri Sep 23 17:42:56 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 2PFMB3Q39Z0BX71040VEYSTVU8DJUU
+ HIT: 2VYDHDM25L8I00784O5Z9OE4TNCFP5
  The answers are:
   1
 
 
 A result is received.
- HIT: 2GOR70G5R98DZWB7CENSVTNYF40RBD
+ HIT: 2ETAT2D5NQYNWSB2YQ75WYMNFN348M
  The answers are:
   6
   1
-
-
-A new HIT is created.
- Level:	2
- Tag:	0
- ID:	2HJ1K274J79KH9ED6UV6XXFCGS2EG4
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  6
-  1
-  3
- Time:	Fri Sep 16 19:06:57 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A new HIT is created.
- Level:	2
- Tag:	1
- ID:	26AI2KYEPLSPYISXKDNJ6OAHT2NOUI
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  8
-  15
-  16
- Time:	Fri Sep 16 19:06:58 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A result is received.
- HIT: 2HJ1K274J79KH9ED6UV6XXFCGS2EG4
- The answers are:
-  6
-  1
-
-
-A result is received.
- HIT: 26AI2KYEPLSPYISXKDNJ6OAHT2NOUI
- The answers are:
-  8
-  16
-
-
-A new HIT is created.
- Level:	3
- Tag:	0
- ID:	28P0G5R98D8JU8MJUZJTQYCG6A9TDZ
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  6
-  1
-  8
- Time:	Fri Sep 16 19:07:39 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A tie casued by the following answers:
-1
-8
-
-
-A new HIT is created.
- Level:	-1
- Tag:	-1
- ID:	20N1Y7QEOZFYH59OQ0DOIXRDVSFEH3
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	2
- Number of requested assignments:	1
- Number of requested answers:	1
- Questions:
-  1
-  8
- Time:	Fri Sep 16 19:08:05 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A result is received.
- HIT: 20N1Y7QEOZFYH59OQ0DOIXRDVSFEH3
- The answers are:
-  8
-
-
-A result is received.
- HIT: 28P0G5R98D8JU8MJUZJTQYCG6A9TDZ
- The answers are:
-  6
-  8
-
-
-Move [4] to level 1
-
-
-Move [4] to level 2
-
-
-A new HIT is created.
- Level:	2
- Tag:	2
- ID:	2T7WZ9RNDWIOME0JQUUDWGU16MATES
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  5
-  2
-  4
- Time:	Fri Sep 16 19:08:25 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A result is received.
- HIT: 2T7WZ9RNDWIOME0JQUUDWGU16MATES
- The answers are:
-  5
-  2
-
-
-A new HIT is created.
- Level:	3
- Tag:	1
- ID:	2RT6BFMFFOYY9695HM4GHSC0ULTLYW
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  16
-  5
-  2
- Time:	Fri Sep 16 19:08:51 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A result is received.
- HIT: 2RT6BFMFFOYY9695HM4GHSC0ULTLYW
- The answers are:
-  16
-  2
 
 
 A new HIT is created.
  Level:	4
  Tag:	0
- ID:	21062NJQ2172QMH2FD2KOCVEEIYOWH
+ ID:	2776AUC26DG6YQ9912RFN0CONTO4BL
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
-  6
+  10
   8
-  16
- Time:	Fri Sep 16 19:09:22 PDT 2011
+  6
+ Time:	Fri Sep 23 17:43:15 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 21062NJQ2172QMH2FD2KOCVEEIYOWH
+ HIT: 2776AUC26DG6YQ9912RFN0CONTO4BL
  The answers are:
-  6
   8
+  6
 
 
-Move [2] to level 5
+Move [1] to level 5
 
 
 A new HIT is created.
  Level:	5
  Tag:	0
- ID:	2K5AB6BFMFFOPBQ5Z0AFGGESFOOJWT
+ ID:	2QH6KW4ZMAZH84ZXDXROQNVRKSP8HC
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
-  6
   8
-  2
- Time:	Fri Sep 16 19:09:53 PDT 2011
+  6
+  1
+ Time:	Fri Sep 23 17:43:48 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A tie casued by the following answers:
+8
+1
+
+
+A new HIT is created.
+ Level:	-1
+ Tag:	-1
+ ID:	2UHKPFE4EGDH4ZAHJF99QZW6K548I5
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	2
+ Number of requested assignments:	1
+ Number of requested answers:	1
+ Questions:
+  8
+  1
+ Time:	Fri Sep 23 17:44:09 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 2K5AB6BFMFFOPBQ5Z0AFGGESFOOJWT
+ HIT: 2UHKPFE4EGDH4ZAHJF99QZW6K548I5
+ The answers are:
+  1
+
+
+A result is received.
+ HIT: 2QH6KW4ZMAZH84ZXDXROQNVRKSP8HC
  The answers are:
   6
-  8
+  1
 
 
 A new HIT is created.
  Level:	6
  Tag:	0
- ID:	27L9Z0B6UTO6KHM7Q0MRNGPWVK2OZ7
+ ID:	27JSNQQ7Q670WEYWAUI15TQC4ORAUJ
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	2
  Number of requested assignments:	2
  Number of requested answers:	1
  Questions:
   6
-  8
- Time:	Fri Sep 16 19:10:34 PDT 2011
+  1
+ Time:	Fri Sep 23 17:44:31 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 27L9Z0B6UTO6KHM7Q0MRNGPWVK2OZ7
+ HIT: 27JSNQQ7Q670WEYWAUI15TQC4ORAUJ
  The answers are:
   6
 
@@ -576,6 +654,6 @@ Thread: CheckNewItemQueueThread is done.
 
 Thread: CheckActiveHitQueueThread is done.
 
-The tree algorithm ended at Fri Sep 16 19:11:09 PDT 2011
+The tree algorithm ended at Fri Sep 23 17:44:52 PDT 2011
 
 The final answer is: 6

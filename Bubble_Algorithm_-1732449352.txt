@@ -1,4 +1,4 @@
-The tree algorithm started at Wed Sep 14 20:55:41 PDT 2011
+The bubble algorithm started at Fri Sep 23 17:01:50 PDT 2011
 
 The Table of Parameters 
 +-----------------------------------------------+-------------------------------+ 
@@ -14,165 +14,141 @@ The Table of Parameters
 +-----------------------------------------------+-------------------------------+ 
 | Generate Automatic Log                        | true
 +-----------------------------------------------+-------------------------------+ 
-| The Name of the Automatic Log                 | Bubble_Algorithm_1798948985.txt
+| The Name of the Automatic Log                 | Bubble_Algorithm_-1732449352.txt
 +-----------------------------------------------+-------------------------------+ 
 | Job ID                                        | null
 +-----------------------------------------------+-------------------------------+ 
 
 
 A new HIT is created.
- ID:	20CNU8LZ6R707IZL6KZJ6VE7ZG7L5Y
+ ID:	2BFFCD45XCETEQ0ZRR9N6TGP7REXZY
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
-  5
+  3
   4
-  3
- Time:	Wed Sep 14 20:55:43 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A result is received.
- HIT: 20CNU8LZ6R707IZL6KZJ6VE7ZG7L5Y
- The answers are:
   5
-  3
-
-
-A new HIT is created.
- ID:	2BR8JHSTLB3LRSJV7PFBMEJRHJTSG1
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	3
- Number of requested assignments:	2
- Number of requested answers:	2
- Questions:
-  5
-  3
-  2
- Time:	Wed Sep 14 20:56:13 PDT 2011
+ Time:	Fri Sep 23 17:01:52 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A tie casued by the following answers:
-2
+4
 5
 
 
 A new HIT is created.
- ID:	2N0AA2SEIUUURDW2IR14LIS8VQ9PPM
+ ID:	24BL0XULRGNT2WBYKKO5IP7N9TP4QX
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	2
  Number of requested assignments:	1
  Number of requested answers:	1
  Questions:
-  2
+  4
   5
- Time:	Wed Sep 14 20:56:37 PDT 2011
+ Time:	Fri Sep 23 17:02:16 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 2N0AA2SEIUUURDW2IR14LIS8VQ9PPM
+ HIT: 24BL0XULRGNT2WBYKKO5IP7N9TP4QX
  The answers are:
-  2
+  5
 
 
 A result is received.
- HIT: 2BR8JHSTLB3LRSJV7PFBMEJRHJTSG1
+ HIT: 2BFFCD45XCETEQ0ZRR9N6TGP7REXZY
  The answers are:
   3
-  2
+  5
 
 
 A new HIT is created.
- ID:	2SVPGFL6VCPWQMZZB39OY1S7VBIL6E
+ ID:	2FE2GTP9RA7SW9UD4GPSRF70MDLVQZ
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	3
  Number of requested assignments:	2
  Number of requested answers:	2
  Questions:
   3
+  5
   2
+ Time:	Fri Sep 23 17:02:32 PDT 2011
+ URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+
+
+A result is received.
+ HIT: 2FE2GTP9RA7SW9UD4GPSRF70MDLVQZ
+ The answers are:
+  3
+  5
+
+
+A new HIT is created.
+ ID:	2H9YNJ92NJKMRIJYH0LH1W2GWGE7CF
+ Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
+ Number of questions(inputs):	3
+ Number of requested assignments:	2
+ Number of requested answers:	2
+ Questions:
+  3
+  5
   1
- Time:	Wed Sep 14 20:57:19 PDT 2011
+ Time:	Fri Sep 23 17:02:51 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A tie casued by the following answers:
-1
-2
+5
+3
 
 
 A new HIT is created.
- ID:	2S5FSVGULF39W54ILNSFV3NYQ7QN9T
+ ID:	243VWJ5OPB0YMT7KWTNBAEP9XU64W1
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	2
  Number of requested assignments:	1
  Number of requested answers:	1
  Questions:
-  1
-  2
- Time:	Wed Sep 14 20:57:43 PDT 2011
+  5
+  3
+ Time:	Fri Sep 23 17:03:37 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 2S5FSVGULF39W54ILNSFV3NYQ7QN9T
+ HIT: 243VWJ5OPB0YMT7KWTNBAEP9XU64W1
  The answers are:
-  2
+  3
 
 
 A result is received.
- HIT: 2SVPGFL6VCPWQMZZB39OY1S7VBIL6E
+ HIT: 2H9YNJ92NJKMRIJYH0LH1W2GWGE7CF
  The answers are:
+  1
   3
-  2
 
 
 A new HIT is created.
- ID:	2Z5MHGYQ4J3N1OENDT6FRYYIWP8NA8
+ ID:	2K24F0OHOVR1VV5WM9C95HECZ1B34T
  Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
  Number of questions(inputs):	2
  Number of requested assignments:	2
  Number of requested answers:	1
  Questions:
+  1
   3
-  2
- Time:	Wed Sep 14 20:57:56 PDT 2011
- URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
-
-
-A tie casued by the following answers:
-3
-2
-
-
-A new HIT is created.
- ID:	2TEA6X3YOCCFRPXHI4GTLNII0MVPQD
- Group ID:	2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
- Number of questions(inputs):	2
- Number of requested assignments:	1
- Number of requested answers:	1
- Questions:
-  3
-  2
- Time:	Wed Sep 14 20:58:15 PDT 2011
+ Time:	Fri Sep 23 17:03:51 PDT 2011
  URL:	http://workersandbox.mturk.com/mturk/preview?groupId=2M4MJTUHYW2GK2H38EJ5ZM1690SJOK
 
 
 A result is received.
- HIT: 2TEA6X3YOCCFRPXHI4GTLNII0MVPQD
+ HIT: 2K24F0OHOVR1VV5WM9C95HECZ1B34T
  The answers are:
-  3
+  1
 
 
-A result is received.
- HIT: 2Z5MHGYQ4J3N1OENDT6FRYYIWP8NA8
- The answers are:
-  3
-
-
-The final answer is: 3
+The final answer is: 1
 
