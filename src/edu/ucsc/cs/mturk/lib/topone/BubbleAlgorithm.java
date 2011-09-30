@@ -36,7 +36,7 @@ import com.amazonaws.mturk.requester.HITStatus;
  * <pre>BubbleAlgorithm bubble = new BubbleAlgorithm.Builder(questions, myHit).
  * propertyFile("mturk.properties").inputSize(6).outputSize(2).
  * numberOfAssignments(5).isLogged(true).logName("Log.txt").
- * jobId("E9FG6X9LO");</pre> <br />
+ * jobId("E9FG6X9LO").build();</pre> <br />
  * Note that you do not need to configure all the parameters. You can choose 
  * to configure only what you need. However, questions and myHit are still 
  * required.
