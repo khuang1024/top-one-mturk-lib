@@ -1,4 +1,4 @@
-## Introduction
+## Introduction:
 This is a library exclusively for Amazon Mechanical Turk. This library 
 implements two algorithms which are tree-like and bubble-like respectively.
 
@@ -7,8 +7,9 @@ small sub-tasks and combines their sub-results to reach the final result.
 This process can be organized like a tree or a bubble. With this library, 
 you can easily make this feature. 
 
-## Library
+## Library:
 There are three main components in this library.
+
 * _src/edu/ucsc/cs/mturk/demo_ contains the demo programs for the use of Java
 library (if you use Java) or algorithm server (if you use other language, you
 can run the algorithm server and pass your questions into the server to process
