@@ -10,12 +10,12 @@ you can easily make this feature.
 ## Library:
 There are three main components in this library.
 
-* _src/edu/ucsc/cs/mturk/*demo*_ contains the demo programs for the use of Java
+* src/edu/ucsc/cs/mturk/**demo** contains the demo programs for the use of Java
 library (if you use Java) or algorithm server (if you use other language, you
 can run the algorithm server and pass your questions into the server to process
 through socket).
-* _src/edu/ucsc/cs/mturk/*lib*_ contains the source files of the Java library.
-* _src/edu/ucsc/cs/mturk/*server*_ contains the source files of the algorithm
+* src/edu/ucsc/cs/mturk/**lib** contains the source files of the Java library.
+* src/edu/ucsc/cs/mturk/**server** contains the source files of the algorithm
 server.
 
 ## Sample Log:
